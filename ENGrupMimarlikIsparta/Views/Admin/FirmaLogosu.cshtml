@@ -1,0 +1,45 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.IletisimBilgileri
+@{
+    ViewBag.Title = "FirmaLogosu";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("FirmaLogosuGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group" style="margin:25px 35px 35px 35px">
+
+        <h2>İletişim Bilgilerini Güncelleme Sayfası</h2>
+        @Html.HiddenFor(x => x.IletisimID)
+
+        <div style="display: flex; justify-content: center; align-items: center; height: 55vh;">
+            <img id="firmaLogosuPreview" src="@Model.FirmaLogosu" alt="Firma Logosu" class="form-control" style="width:400px; height:400px" />
+        </div>
+        <input type="file" id="firmaLogosuInput" name="FirmaLogosu" class="form-control btn btn-info" />
+
+        <br />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+<script>
+    document.getElementById("firmaLogosuInput").addEventListener("change", function () {
+        var preview = document.getElementById("firmaLogosuPreview");
+        var file = this.files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "@Model.FirmaLogosu";
+        }
+    });
+</script>
+

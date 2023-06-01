@@ -1,0 +1,80 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<EPosta>
+@{
+    ViewBag.Title = "SilinmisMesajlar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    int mesajSayisi = Model.Count();
+}
+
+
+
+
+
+<br />
+<br />
+<div>
+
+
+
+    <h5>Silinen Mesaj Sayısı <span style="color:red">@mesajSayisi</span> </h5>
+
+
+    <center>
+        <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
+            <tr class="alert-warning">
+                <th>#</th>
+                <th>Adı Soyadı</th>
+                <th></th>
+
+                <th>Konu</th>
+                <th>Mesaj</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @{ int siraNo = 0; string mesajStatusu; }
+            @foreach (var item in Model)
+            {
+                string trStyle = "";
+
+                <tr style="@trStyle">
+
+                    <td>@{siraNo++;} @siraNo</td>
+                    <td>@item.Gonderen</td>
+                    <td></td>
+
+                    <td>@item.Konu.Substring(0, Math.Min(item.Konu.Length, 45))...</td>
+                    <td><a href="/Mesaj/MesajDetay/@item.MesajID">@item.MesajDetay.Substring(0, Math.Min(item.MesajDetay.Length, 45))...</a></td>
+                    <td></td>
+                    <td>
+                        <center>
+                            <button onclick="mesajSil('@item.MesajID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <button onclick="mesajSil('@item.MesajID')" class="btn btn-warning"><i class="fas fa-undo"></i></button>
+                        </center>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </center>
+</div>
+
+<script>
+    function mesajSil(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/MesajSil/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function mesajSil(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/GelenKutusunaTasi/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+

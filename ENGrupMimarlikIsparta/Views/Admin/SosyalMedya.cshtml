@@ -1,0 +1,32 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.SosyalMedyaAyarlar
+@{
+    ViewBag.Title = "SosyalMedya";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SosyalMedyaGuncelle", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group" style="margin:25px 35px 35px 35px">
+
+    @Html.HiddenFor(x => x.LoginID)
+
+    <h2>Ayarlar</h2>
+
+    @Html.Label("Facebook Adresi")
+    @Html.TextBoxFor(x => x.facebookAdresi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Twitter Adresi")
+    @Html.TextBoxFor(x => x.twitterAdresi, new { @class = "form-control" })
+    <br />
+    @Html.Label("İnstagram Adresi")
+    @Html.TextBoxFor(x => x.instagramAdresi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Linkedin Adresi")
+    @Html.TextBoxFor(x => x.linkedinAdresi, new { @class = "form-control" })
+
+
+
+    <br />
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</div>
+}

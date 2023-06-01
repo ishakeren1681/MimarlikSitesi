@@ -1,0 +1,59 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<Detaylar>
+@{
+    ViewBag.Title = "NelerYapiyoruzIndex";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+<div class="hakkimizda-background">
+    <center>
+        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+        <h1 class="background-sayfa-ismi">Neler Yapıyoruz?</h1>
+    </center>
+</div>
+
+<br />
+@foreach (var item in Model)
+{
+    <div class="neleryapiyoruz-divler">
+        @if (!string.IsNullOrEmpty(item.Fotograf))
+        {
+            <img class="neleryapiyoruz-img projeSize" src=@item.Fotograf alt="">
+        }
+        <div>
+            @if (!string.IsNullOrEmpty(item.Baslik))
+            {
+                <div>
+                    <h1 class="neleryapiyoruz-text">@item.Baslik</h1>
+                </div>
+            }
+            <br />
+            @if (!string.IsNullOrEmpty(item.Aciklama))
+            {
+                <div>
+                    <h2 class="neleryapiyoruz-text">@item.Aciklama</h2>
+                </div>
+            }
+        </div>
+
+    </div>
+
+
+    <div style="text-align:right; margin-right:50px">
+        <a class="btn btn-danger" style="margin-left:50px" href="/NelerYapiyoruz/VeriSil/@item.DetayID">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        <a class="btn btn-success" href="/NelerYapiyoruz/NelerYapiyoruzVerileriniGetir/@item.DetayID">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+    </div>
+}
+<br />
+
+<div style="text-align: right; margin-right: 50px ">
+    <a class="btn btn-primary" href="/NelerYapiyoruz/VeriEkle/">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</div>
+
+

@@ -1,0 +1,67 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Detaylar
+@{
+    ViewBag.Title = "VeriEkle";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+
+<br />
+<div class="hakkimizda-background">
+    <center>
+        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+        <h1 class="background-sayfa-ismi">Neler Yapıyoruz?</h1>
+    </center>
+</div>
+<br />
+
+
+<form class="form-group" method="post" style="margin: 25px 35px 35px 35px" enctype="multipart/form-data">
+    <h2>Neler Yapıyoruz Veri Ekle</h2>
+
+    @Html.Label("Fotoğraf")
+    <br />
+    <div style="justify-content: center; align-items: center; ">
+        <img id="fotogragPreview" src="" alt="Resim Yüklenemedi" class="form-control" style="width:800px; height:550px; display: none;" />
+        <br />
+        <input id="FotografInput" type="file" name="Fotograf" />
+    </div>
+
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+
+
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+
+
+    <br />
+    <button class="btn btn-success">EKLE</button>
+</form>
+<br />
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+
+    document.getElementById("FotografInput").addEventListener("change", function () {
+        var preview = document.getElementById("fotogragPreview");
+        var file = this.files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+            preview.style.display = "block"; // Resim yüklendiğinde görünür yapılıyor.
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+            preview.style.display = "none"; // Resim yüklenmediğinde gizleniyor.
+        }
+    });
+</script>
+
+

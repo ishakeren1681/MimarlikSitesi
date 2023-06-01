@@ -1,0 +1,51 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.EPosta
+@{
+    ViewBag.Title = "MesajBirak";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+
+<div class="hakkimizda-background">
+    <center>
+        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+        <h1 class="background-sayfa-ismi">Mesaj Bırak</h1>
+    </center>
+</div>
+
+@using (Html.BeginForm("MesajBirak", "Mesaj", FormMethod.Post, new { @class = "form-group", style = "margin: 25px 35px 35px 35px", enctype = "multipart/form-data" }))
+{
+    <h2>Mesaj Gönderme Sayfası</h2>
+
+    @Html.Label("Ad Soyad (*)")
+    @Html.ValidationMessageFor(x => x.Gonderen)
+    @Html.TextBoxFor(x => x.Gonderen, new { @class = "form-control" })
+
+    @Html.Label("Email (*)")
+    @Html.ValidationMessageFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+
+    @Html.Label("Telefon Numarası")
+    @Html.ValidationMessageFor(x => x.TelefonNumarasi)
+    @Html.TextBoxFor(x => x.TelefonNumarasi, new { @class = "form-control" })
+
+    @Html.Label("Konu (*)")
+    @Html.ValidationMessageFor(x => x.Konu)
+    @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+
+    @Html.Label("Mesaj (*)")
+    @Html.ValidationMessageFor(x => x.MesajDetay)
+    @Html.TextAreaFor(x => x.MesajDetay, new { @class = "form-control" })
+
+    <br />
+    <button type="submit" class="btn btn-success">Gönder</button>
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa | E&N Mimarlık</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/ENMimarlik/style.css" />
+
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    @*BURAYA RENK KODU EKLENECEK*@
+
+    <div class="navbar">
+        @*BURAYA RENK KODU EKLENECEK..*@
+
+        <div>
+            <a style="text-decoration:none" href="/Admin/AdminIndex/">
+                @Html.Action("FirmaLogosu_SolKose", "Sayfalar")
+                <span style="font-weight:bold; color:white; font-size:20px;">
+                    E & N GRUP MİMARLIK
+                </span>
+            </a>
+        </div>
+
+        @*<a href="/Admin/AdminIndex"><img class="logo-img" src="~/ENMimarlik/img/logo.png" alt=""></a>*@
+
+        <div style="margin:27px 80px">
+            <a class="navbar-menu" href="/Anasayfa/AnasayfaIndex">Anasayfa</a>
+            <a class="navbar-menu" href="/Hakkimizda/HakkimizdaIndex">Hakkımızda</a>
+            <a class="navbar-menu" href="/NelerYapiyoruz/NelerYapiyoruzIndex/">Neler Yapıyoruz</a>
+            <a class="navbar-menu" href="/Projelerimiz/ProjeIndex">Projelerimiz</a>
+            <a class="navbar-menu" href="/Iletisim/IletisimIndex/">İletişim</a>
+        </div>
+
+        <div style="margin-left:100px; margin-top:5px">
+            @Html.Action("SosyalMedyaPartial", "Sayfalar")
+            <a class="glyphicon glyphicon-cog" style="font-size: 45px; color: white; margin-left:80px; " href="/Login/LoginIndex">
+            </a>
+        </div>
+
+    </div>
+
+
+    @RenderBody()
+
+    <!--! BOTTOM İNFO-->
+    <div class="bottom-info">
+        <ul class="bottom-ul">
+            İletişim Bilgileri
+            @Html.Action("IletisimBilgileri_Footer", "Iletisim")
+        </ul>
+
+        <ul class="bottom-ul">
+            Hizmetlerimiz
+            @Html.Action("HizmetBilgileri_Footer", "Iletisim")
+
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+@*<style>
+        .navbar-menu {
+            margin-left: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.5s;
+        }
+
+            .navbar-menu:hover {
+                text-decoration: none;
+                font-weight: bold;
+                transform: scale(1.2);
+                font-size: 25px;
+                color: white;
+                text-decoration: none;
+            }
+    </style>*@

@@ -1,0 +1,51 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<IletisimBilgileri>
+
+@{
+    ViewBag.Title = "IletisimIndex";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+<div class="hakkimizda-background">
+    <center>
+        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+        <h1 class="background-sayfa-ismi">iletişim</h1>
+    </center>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="iletisim-bolme2">
+        <div class="iletisim-bolme2-img projeSize">
+            <img style="width:900px; height:600px" src="@item.Fotograf" alt="">
+        </div>
+        <div class="iletisim-bolme2-text">
+            <p class="iletisim-baslik">Adres</p>
+            <p class="iletişim-ayrinti">@item.Adres</p>
+
+            <p class="iletisim-baslik">Email</p>
+            <p class="iletişim-ayrinti">@item.Email</p>
+
+            <p class="iletisim-baslik">İletişim Numarası</p>
+            <p class="iletişim-ayrinti">@item.TelefonNumarasi_1</p>
+            <p class="iletişim-ayrinti">@item.TelefonNumarasi_2</p>
+        </div>
+    </div>
+
+    <br />
+    <div style="text-align: right; margin-right: 50px ">
+        <a class="btn btn-warning" href="/Mesaj/MesajBirak/">Mesaj Bırak</a>
+    </div>
+}
+<br />
+
+
+
+
+
+
+
+
+
+

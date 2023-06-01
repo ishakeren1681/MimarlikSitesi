@@ -1,0 +1,88 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<Detaylar>
+@{
+    ViewBag.Title = "MerkezProjeleri";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+
+<div>
+    <div class="hakkimizda-background">
+        <center>
+            <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+            <h1 class="background-sayfa-ismi">Merkez Projeleri</h1>
+        </center>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="anasayfa-proje-div">
+            @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sol")
+            {
+                <div class="anasayfa-img-div">
+                    <img class="projeSize anasayfa-fotograf" src="@item.Fotograf" alt="">
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(item.Baslik) && !string.IsNullOrEmpty(item.Aciklama))
+            {
+                <div>
+                    <center>
+                        @if (!string.IsNullOrEmpty(item.Baslik))
+                        {
+                            <h1 class="anasayfa-baslik">@item.Baslik</h1>
+                        }
+                        @if (!string.IsNullOrEmpty(item.Aciklama))
+                        {
+                            <p class="anasayfa-aciklama">@item.Aciklama</p>
+                        }
+                    </center>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sağ")
+            {
+                <div class="anasayfa-img-div">
+                    <img class="anasayfa-fotograf projeSize" src="@item.Fotograf" alt="">
+                </div>
+            }
+        </div>
+
+        //! Orta Gösterim
+
+        if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Orta")
+        {
+            <div class="anasayfa-teklifoto-div">
+                <div class="anasayfa-teklifoto-ic-div">
+                    <img class="anasayfa-teklifoto-img projeSize" src="@item.Fotograf" alt="">
+                </div>
+            </div>
+        }
+
+        <div style="text-align:right; margin-right:50px">
+            <a class="btn btn-danger" style="margin-left:50px" href="/Projelerimiz/MerkezProjeSil/@item.DetayID">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+            <a class="btn btn-success" href="/Projelerimiz/MerkezProjesiVerileriniGetir/@item.DetayID">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+        </div>
+    }
+    <br />
+    <br />
+
+
+
+
+</div>
+
+
+<div style="text-align: right; margin-right: 50px ">
+    <a class="btn btn-primary" href="/Projelerimiz/MerkezProjesiEkle">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</div>
+
+
+
+

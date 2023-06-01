@@ -1,0 +1,28 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Hizmetlerimiz
+@{
+    ViewBag.Title = "HizmetBilgileriniGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("HizmetBilgisiGuncelle", "Hizmet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group" style="margin:25px 35px 35px 35px">
+
+
+        @Html.HiddenFor(x => x.HizmetID)
+
+
+        <h2>Yeni Admin Ekle</h2>
+
+        @Html.Label("Hizmet Adı")
+       
+        @Html.TextBoxFor(x => x.Hizmet, new { @class = "form-control" })
+
+        <br />
+        <button type="submit" class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+
+

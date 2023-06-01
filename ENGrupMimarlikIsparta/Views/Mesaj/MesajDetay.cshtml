@@ -1,0 +1,84 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<EPosta>
+@{
+    ViewBag.Title = "MesajDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+
+<h2>Mesaj Detay</h2>
+
+@foreach (var item in Model)
+{
+
+    <div>
+        <h2>Posta Okuma</h2>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Adı Soyadı:</strong>
+            </div>
+            <div class="col-md-10">
+                <p>@item.Gonderen</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <strong>E-mail:</strong>
+            </div>
+            <div class="col-md-10">
+                <p>@item.Email</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Telefon Numarası:</strong>
+            </div>
+            <div class="col-md-10">
+                <p>@item.TelefonNumarasi</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Konu:</strong>
+            </div>
+            <div class="col-md-10">
+                <p>@item.Konu</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <strong>Mesaj:</strong>
+            </div>
+            <div class="col-md-10">
+                <p>@item.MesajDetay</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <button onclick="mesajSil('@item.MesajID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script>
+    function mesajSil(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/SilinenlereTasi/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+
+</script>

@@ -1,0 +1,21 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Hizmetlerimiz
+@{
+    ViewBag.Title = "HizmetEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("HizmetEkle", "Hizmet", FormMethod.Post, new { @class = "form-group", style = "margin: 25px 35px 35px 35px", enctype = "multipart/form-data" }))
+{
+    <h2>Hizmet Ekle</h2>
+
+    @Html.Label("Hizmet Adı")
+
+    @Html.TextBoxFor(x => x.Hizmet, new { @class = "form-control" })
+
+    <br />
+    <button type="submit" class="btn btn-success">EKLE</button>
+}
+
+
+

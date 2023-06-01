@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Electrolize', sans-serif;
+    background-color: darkgray;
+}
+
+
+.Sayfa-Ortala {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.background-sirket-ismi {
+    color: white;
+    padding-top: 75px;
+}
+
+
+.sirket-ismi {
+    font-size: 65px;
+    color: white;
+}
+
+.sayfa-ismi {
+    font-size: 55px;
+    color: burlywood;
+}
+
+.background-sayfa-ismi {
+    padding-top: 25px;
+    font-size: 50px;
+    color: burlywood;
+}
+
+.bottom-info {
+    background: url(img/anasayfa5.jpg);
+    background-size: 100% 100%;
+    /*height: 400px;*/
+    margin-top: 250px;
+    color: chocolate;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.bottom-ul {
+    margin-top: 100px;
+    list-style: none;
+    font-weight: bold;
+}
+
+.bottom-li {
+    font-size: 25px;
+    padding-top: 25px;
+    color: white;
+}
+
+.projeSize {
+    transition: all 2s;
+}
+
+
+    .projeSize:hover {
+        transition: 1s;
+        transform: scale(1.1);
+    }
+
+.anasayfa-fotograf {
+    width: 100%;
+    height: 100%;
+}
+
+.anasayfa-img-div {
+    width: 600px;
+    height: 400px;
+}
+
+
+
+
+
+/*!   navbar start*/
+.navbar {
+    display: flex;
+    background-color: lightslategray;
+    height: 75px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.navbar-menu {
+    margin-left: 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.5s;
+}
+
+    .navbar-menu:hover {
+        text-decoration: none;
+        font-weight: bold;
+        transform: scale(1.2);
+        font-size: 25px;
+        color: white;
+        text-decoration: none;
+    }
+
+.menu-button {
+    color: #80bdff;
+    text-decoration: none;
+}
+
+
+/*!   navbar end*/
+
+/*!   navbar menu start*/
+
+
+
+
+    /*.menu-list-item:hover {*/ /*? itemlarin üzerine gelindiğinde yapılacak işlemler */
+
+        /*font-weight: bold;
+        transform: scale(1.2);
+        color: #80bdff;
+        text-decoration: none;
+    }*/
+
+.logo-img {
+    margin: 10px 10px;
+    color: white;
+    width: 65px;
+    height: 65px;
+    text-decoration: none
+}
+
+.logo-yazi {
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+    text-decoration: none
+}
+
+
+.admin-icon {
+    text-decoration: none;
+}
+
+.admin-icon:hover {
+    text-decoration: none;
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+
+/*!   navbar menu end*/
+
+
+/*! background start*/
+.background-img {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+.anasayfa-background {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+
+.tecrübe {
+    font-size: 50px;
+}
+
+
+.background-text {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 50px;
+    color: black;
+}
+
+.bilgilendirme {
+    margin-left: 20px;
+}
+/*! background end*/
+
+/*! Anasayfa Bolme2 start*/
+
+.anasayfa-proje-div {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    column-gap: 75px;
+}
+
+.anasayfa-baslik {
+    margin-top: 75px;
+    color: darkslategrey;
+    font-size: 40px;
+}
+
+.anasayfa-aciklama {
+    color: lightslategray;
+    font-size: 30px;
+}
+
+
+/*! Anasayfa Bolme2 end*/
+
+/*! Anasayfa Bolme 3  start*/
+
+
+.anasayfa-teklifoto-div {
+    width: 100%;
+    height: 555px;
+}
+
+.anasayfa-teklifoto-ic-div {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    background-color: gainsboro;
+}
+
+.anasayfa-teklifoto-img {
+    height: 500px;
+    width: 70%;
+    padding-top: 65px;
+}
+
+.anasayfa-veri-bari {
+    background-color: darkblue;
+    padding: 25px 0 25px 25px;
+}
+
+
+/*! Anasayfa Bolme 3  end*/
+
+.anasayfa-proje-div {
+    width: 100%;
+}
+
+.veriEklemeButonu {
+    margin-left: 50px;
+}
+
+
+
+
+/*! Anasayfa Bolme 4 end*/
+
+
+
+
+
+
+
+/*! Anasayfa Bolme 5 end*/
+
+
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+/*! İLETİSİM PANELİ   */
+
+.iletisim-background {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+
+
+.iletisim-bolme2 {
+    margin-top: 100px;
+    display: flex;
+}
+
+.iletisim-bolme2-img {
+    margin-left: 25px;
+}
+
+.iletisim-baslik {
+    margin-top: 35px;
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.iletişim-ayrinti {
+    margin-left: 50px;
+    font-size: 25px;
+}
+
+
+
+.iletisim-form {
+    width: 90%;
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+
+.iletisim-box {
+    margin-left: 25px;
+    display: block;
+    width: 90%;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+    .iletisim-box:focus {
+        border-color: #80bdff;
+        outline: 0;
+    }
+
+label {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.gonder-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    background-color: #007bff;
+    margin: 30px;
+}
+
+    .gonder-btn:hover {
+        background-color: #0069d9;
+    }
+
+.message {
+    height: 100px;
+}
+
+.form-label {
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+
+
+/*! HAKKIMIZDA PANELİ   */
+/*! HAKKIMIZDA PANELİ   */
+/*! HAKKIMIZDA PANELİ   */
+/*! HAKKIMIZDA PANELİ   */
+/*! HAKKIMIZDA PANELİ   */
+/*! HAKKIMIZDA PANELİ   */
+
+.hakkimizda-background {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+
+
+/*!hakkimizda Ekip START */
+
+.ekibimiz-div {
+    color: darkgray;
+    width: 100%;
+    height: 650px;
+    background-color: darkslategrey;
+}
+
+.ekip-baslik {
+    margin-top: 250px;
+    font-size: 50px;
+}
+
+.avatar-img {
+    border-radius: 5%;
+}
+
+
+
+.ekip-resimler {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    column-gap: 25px;
+    align-self: center;
+}
+
+.ekip-isimler {
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.ekip-meslekler {
+    font-size: 25px;
+}
+
+
+
+
+
+/*! PORTFLYO PANELİ   */
+/*! PORTFLYO PANELİ   */
+/*! PORTFLYO PANELİ   */
+/*! PORTFLYO PANELİ   */
+/*! PORTFLYO PANELİ   */
+/*! PORTFLYO PANELİ   */
+
+
+
+.portfolyo-background {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+.portfolyo-proje {
+    margin-top: 150px;
+}
+
+.portfolyo-text {
+    color: darkorange;
+    margin-left: 100px;
+}
+
+
+.portfolyo-img {
+    width: 85%;
+    height: 500px;
+    margin-left: 100px;
+}
+
+
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+/*! NELER YAPIYORUZ PANELİ   */
+
+
+
+
+.neler-yapiyoruz-background {
+    background: url(img/anasayfa3.png);
+    margin-top: -40px;
+    padding: 50px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+
+.neleryapiyoruz-divler {
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+    margin-top: 75px;
+    margin-left: -400px;
+}
+
+.neleryapiyoruz-img {
+    width: 600px;
+    height: 450px;
+}
+
+
+
+
+
+.menu-list a:hover {
+    color: white;
+}

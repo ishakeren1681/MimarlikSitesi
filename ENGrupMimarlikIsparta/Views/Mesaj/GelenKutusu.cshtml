@@ -1,0 +1,99 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<EPosta>
+@{
+    ViewBag.Title = "GelenKutusu";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+
+    int mesajSayisi = Model.Count();
+}
+
+
+
+<br />
+<br />
+<div>
+
+
+
+    <h5>Gelen Mesaj Sayısı <span style="color:red">@mesajSayisi</span> </h5>
+    <center>
+
+        <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
+            <tr class="alert-warning">
+                <th>#</th>
+                <th>Adı Soyadı</th>
+                <th></th>
+
+                <th>Konu</th>
+                <th>Mesaj</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @{ int siraNo = 0; string mesajStatusu; }
+            @foreach (var item in Model)
+            {
+                string trStyle = "";
+                if (item.MesajStatusu == "Yeni")
+                {
+                    trStyle = "font-weight: bold;";
+                }
+
+
+
+                <tr style="@trStyle">
+
+                    <td>@{siraNo++;} @siraNo</td>
+                    <td>@item.Gonderen</td>
+                    <td></td>
+
+                    <td>@item.Konu.Substring(0, Math.Min(item.Konu.Length, 45))...</td>
+                    <td><a href="/Mesaj/MesajDetay/@item.MesajID">@item.MesajDetay.Substring(0, Math.Min(item.MesajDetay.Length, 45))...</a></td>
+                    <td></td>
+                    <td>
+                        <center>
+                            <button onclick="silinenlereTasi('@item.MesajID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            @if (item.MesajStatusu == "Yeni")
+                            {
+                                <button onclick="okunanOlarakIsaretle('@item.MesajID')" class="btn btn-primary"><i class="fas fa-envelope"></i></button>
+                            }
+                            @if (item.MesajStatusu == "Okundu")
+                            {
+                                <button onclick="OkunmadıOlarakIsaretle('@item.MesajID')" class="btn btn-primary"><i class="fas fa-envelope-open"></i></button>
+                            }
+                        </center>
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </center>
+</div>
+
+<script>
+    function silinenlereTasi(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/SilinenlereTasi/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function OkunmadıOlarakIsaretle(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/OkunmadıOlarakIsaretle/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function okunanOlarakIsaretle(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Mesaj/OkunduOlarakIsaretle/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>

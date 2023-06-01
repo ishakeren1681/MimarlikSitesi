@@ -1,0 +1,71 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<Hizmetlerimiz>
+@{
+    ViewBag.Title = "HizmetIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<div>
+    <center>
+        <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
+            <tr class="alert-warning">
+                <th>#</th>
+                <th>Hizmet</th>
+                <th>
+                    <center>
+                        İşlemler
+                    </center>
+                </th>
+            </tr>
+
+            @{ int siraNo = 0; }
+            @foreach (var item in Model)
+            {
+                string trStyle = "";
+                <tr  style="@trStyle">
+
+                    <td>@{siraNo++;} @siraNo</td>
+                    <td>@item.Hizmet</td>
+                    <td>
+                        <center>
+
+                            <button onclick="hizmetSil('@item.HizmetID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <button onclick="hizmetBilgileriniGetir('@item.HizmetID')" class="btn btn-success"><i class="fas fa-pen"></i></button>
+                        </center>
+                    </td>
+                </tr>
+            }
+        </table>
+    </center>
+</div>
+
+<a class="btn btn-primary" href="/Hizmet/HizmetEkle">Hizmet Ekle</a>
+
+<script>
+    function hizmetBilgileriniGetir(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Hizmet/HizmetBilgileriniGetir/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function hizmetSil(adminID) {
+        var confirmResult = confirm("Bu hizmeti silmek istediğinize emin misiniz?");
+        if (confirmResult) {
+            // Kullanıcı "Evet" seçeneğini seçti
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = '/Hizmet/HizmetSil/' + adminID;
+            document.body.appendChild(form);
+            form.submit();
+        } else {
+            // Kullanıcı "Hayır" seçeneğini seçti
+            alert("Hizmet silme işlemi iptal edildi.");
+        }
+    }
+</script>
+
+
+

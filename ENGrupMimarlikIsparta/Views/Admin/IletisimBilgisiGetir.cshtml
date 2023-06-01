@@ -1,0 +1,68 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.IletisimBilgileri
+@{
+    ViewBag.Title = "IletisimBilgisiGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("IletisimBilgisiGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group" style="margin:25px 35px 35px 35px">
+
+        <h2>İletişim Bilgilerini Güncelleme Sayfası</h2>
+        @Html.HiddenFor(x => x.IletisimID)
+
+        @Html.Label("Fotoğraf")
+        <br />
+        <div style="justify-content: center; align-items: center; ">
+            <img id="fotogragPreview" src="@Model.Fotograf" alt="Resim Yüklenemedi" class="form-control" style="width:800px; height:550px" />
+            <br />
+            <input id="FotografInput" type="file" name="Fotograf" />
+        </div>
+
+        @Html.Label("Adres")
+        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+        <br />
+        @Html.Label("Email")
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        <br />
+        @Html.Label("İletişim Numarası_1")
+        @Html.TextBoxFor(x => x.TelefonNumarasi_1, new { @class = "form-control" })
+        <br />
+        @Html.Label("İletişim Numarası_2")
+        @Html.TextBoxFor(x => x.TelefonNumarasi_2, new { @class = "form-control" })
+
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+
+    document.getElementById("FotografInput").addEventListener("change", function () {
+        var preview = document.getElementById("fotogragPreview");
+        var file = this.files[0];
+        var reader = new FileReader();
+        0
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "@Model.Fotograf";
+        }
+    });
+</script>
+
+
+
+
+
+
+

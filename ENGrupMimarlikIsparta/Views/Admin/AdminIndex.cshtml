@@ -1,0 +1,79 @@
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<Admin>
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+}
+
+
+<br />
+<br />
+<div>
+    <center>
+        <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
+            <tr class="alert-warning">
+                <th>#</th>
+                <th>Kullanıcı Adı</th>
+                <th>Email</th>
+                <th>Sifre</th>
+                <th>Yetki Statüsü</th>
+                <th>
+                    <center>
+                        İşlemler
+                    </center>
+                </th>
+            </tr>
+
+            @{ int siraNo = 0; }
+            @foreach (var item in Model)
+            {
+                string trStyle = "";
+                <tr style="@trStyle">
+
+                    <td>@{siraNo++;} @siraNo</td>
+                    <td>@item.KullaniciAdi</td>
+                    <td>@item.Email</td>
+                    <td>@item.Sifre</td>
+                    <td>@item.YetkiStatusu</td>
+                    <td>
+                        <center>
+
+                            <button onclick="adminSil('@item.AdminID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <button onclick="adminBilgileriniGetir('@item.AdminID')" class="btn btn-success"><i class="fas fa-pen"></i></button>
+                        </center>
+                    </td>
+                </tr>
+            }
+        </table>
+    </center>
+</div>
+
+<a class="btn btn-primary" href="/Admin/AdminEkle">Yeni Admin Ekle</a>
+
+<script>
+    function adminBilgileriniGetir(mesajID) {
+        var form = document.createElement('form');
+        form.method = 'post';
+        form.action = '/Admin/AdminBilgileriniGetir/' + mesajID;
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function adminSil(adminID) {
+        var confirmResult = confirm("Bu admini silmek istediğinize emin misiniz?");
+        if (confirmResult) {
+            // Kullanıcı "Evet" seçeneğini seçti
+            var form = document.createElement('form');
+            form.method = 'post';
+            form.action = '/Admin/AdminSil/' + adminID;
+            document.body.appendChild(form);
+            form.submit();
+        } else {
+            // Kullanıcı "Hayır" seçeneğini seçti
+            alert("Admin silme işlemi iptal edildi.");
+        }
+    }
+</script>
+
+

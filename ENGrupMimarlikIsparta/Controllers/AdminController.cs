@@ -1,0 +1,178 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
+using ENGrupMimarlikIsparta.Models;
+using ENGrupMimarlikIsparta.Models.Siniflar;
+
+namespace ENGrupMimarlikIsparta.Controllers
+{
+
+    [Authorize]
+    public class AdminController : Controller
+    {
+        Context c = new Context();
+
+        public ActionResult AdminIndex()
+        {
+            var adminler = c.Admins.ToList();
+            return View(adminler);
+        }
+
+        [HttpGet]
+        public ActionResult AdminEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminEkle(Admin p)
+        {
+            if (ModelState.IsValid)
+            {
+                var bilgiler = c.Admins.FirstOrDefault(x => x.Email == p.Email);
+                if (bilgiler != null)
+                {
+                    ViewBag.mailVar = "Böyle bir mail adresi daha önce alınmış şifrenizi mi unuttunuz?";
+                    return View(p);
+                }
+                else
+                {
+                    c.Admins.Add(p);
+                    c.SaveChanges();
+                    return RedirectToAction("AdminIndex", "Admin");
+                }
+            }
+            else
+            {
+                return View(p);
+            }
+        }
+
+        public ActionResult AdminSil(int id)
+        {
+            var adminBul = c.Admins.Find(id);
+            c.Admins.Remove(adminBul);
+            c.SaveChanges();
+            return RedirectToAction("AdminIndex", "Admin");
+        }
+
+        public ActionResult AdminBilgileriniGetir(int id =2)
+        {
+            var adminBilgileri = c.Admins.Find(id);
+            return View("AdminBilgileriniGetir",adminBilgileri);
+        }
+
+        public ActionResult AdminGuncelle(Admin p)
+        {
+            var adminVeri = c.Admins.Find(p.AdminID);
+            if (ModelState.IsValid)
+            {
+                adminVeri.Email = p.Email;
+                adminVeri.Sifre = p.Sifre;
+                adminVeri.KullaniciAdi = p.KullaniciAdi;
+                adminVeri.SifreTekrar = p.SifreTekrar;
+                adminVeri.YetkiStatusu = p.YetkiStatusu;
+                c.SaveChanges();
+                return RedirectToAction("AdminIndex", "Admin", p);
+            }
+            else
+            {
+                return View("AdminBilgileriniGetir",p);
+            }
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Anasayfa", "Sayfalar");
+        }
+
+        public ActionResult SosyalMedya(int id = 1)
+        {
+            var sosyalMedya = c.SosyalMedyaAyarlars.Find(id);
+            return View("SosyalMedya", sosyalMedya);
+        }
+
+        public ActionResult SosyalMedyaGuncelle(SosyalMedyaAyarlar p)
+        {
+            var sosyalMedyaVeri = c.SosyalMedyaAyarlars.Find(p.LoginID);
+            if (ModelState.IsValid)
+            {
+                sosyalMedyaVeri.twitterAdresi = p.twitterAdresi;
+                sosyalMedyaVeri.linkedinAdresi = p.linkedinAdresi;
+                sosyalMedyaVeri.facebookAdresi = p.facebookAdresi;
+
+                c.SaveChanges();
+                return RedirectToAction("SosyalMedya", "Login", p);
+            }
+            else
+            {
+                return View("SosyalMedya", p);
+            }
+        }
+
+      
+        public ActionResult IletisimBilgisiGetir(int id = 1)
+        {
+            var iletisimBilgileri = c.IletisimBilgileris.Find(id);
+            return View("IletisimBilgisiGetir", iletisimBilgileri);
+        }
+
+        public ActionResult IletisimBilgisiGuncelle(IletisimBilgileri p)
+        {
+            var iletisimVeri = c.IletisimBilgileris.Find(p.IletisimID);
+
+            if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
+            {
+                var file = Request.Files[0];
+                string dosyaAdi = Path.GetFileName(file.FileName);
+                string uzanti = Path.GetExtension(file.FileName);
+                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
+                file.SaveAs(yol);
+                p.Fotograf = "/Image/" + dosyaAdi;
+                iletisimVeri.Fotograf = p.Fotograf;
+            }
+
+            iletisimVeri.Adres = p.Adres;
+            iletisimVeri.Email = p.Email;
+            iletisimVeri.TelefonNumarasi_1 = p.TelefonNumarasi_1;
+            iletisimVeri.TelefonNumarasi_2 = p.TelefonNumarasi_2;
+
+            c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
+
+            return RedirectToAction("IletisimBilgisiGetir");
+        }
+
+        public ActionResult FirmaLogosu(int id = 1)
+        {
+            var iletisimBilgileri = c.IletisimBilgileris.Find(id);
+            return View("FirmaLogosu", iletisimBilgileri);
+        }
+
+        public ActionResult FirmaLogosuGuncelle(IletisimBilgileri p)
+        {
+
+            var iletisimVeri = c.IletisimBilgileris.Find(p.IletisimID);
+
+            if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
+            {
+                var file = Request.Files[0];
+                string dosyaAdi = Path.GetFileName(file.FileName);
+                string uzanti = Path.GetExtension(file.FileName);
+                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
+                file.SaveAs(yol);
+                p.FirmaLogosu = "/Image/" + dosyaAdi;
+                iletisimVeri.FirmaLogosu = p.FirmaLogosu;
+            }
+
+            c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
+
+            return RedirectToAction("FirmaLogosu", "Admin");
+        }
+    }
+}
