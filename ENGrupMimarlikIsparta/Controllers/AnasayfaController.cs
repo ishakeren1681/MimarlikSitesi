@@ -47,6 +47,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.Detaylars.Add(p);
             c.SaveChanges();
             return RedirectToAction("AnasayfaIndex");
+
         }
 
         public ActionResult AnasayfaVerileriniGetir(int id)
