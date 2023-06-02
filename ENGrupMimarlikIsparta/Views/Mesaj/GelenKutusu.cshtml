@@ -14,8 +14,6 @@
 <br />
 <div>
 
-
-
     <h5>Gelen Mesaj Sayısı <span style="color:red">@mesajSayisi</span> </h5>
     <center>
 
@@ -27,11 +25,12 @@
 
                 <th>Konu</th>
                 <th>Mesaj</th>
+                <th>Tarih</th>
                 <th></th>
                 <th></th>
             </tr>
 
-            @{ int siraNo = 0; string mesajStatusu; }
+            @{ int siraNo = 0; }
             @foreach (var item in Model)
             {
                 string trStyle = "";
@@ -39,8 +38,6 @@
                 {
                     trStyle = "font-weight: bold;";
                 }
-
-
 
                 <tr style="@trStyle">
 
@@ -50,6 +47,7 @@
 
                     <td>@item.Konu.Substring(0, Math.Min(item.Konu.Length, 45))...</td>
                     <td><a href="/Mesaj/MesajDetay/@item.MesajID">@item.MesajDetay.Substring(0, Math.Min(item.MesajDetay.Length, 45))...</a></td>
+                    <td>@item.Tarih.ToShortDateString()</td>
                     <td></td>
                     <td>
                         <center>
@@ -62,10 +60,10 @@
                             {
                                 <button onclick="OkunmadıOlarakIsaretle('@item.MesajID')" class="btn btn-primary"><i class="fas fa-envelope-open"></i></button>
                             }
+                            
                         </center>
                     </td>
                 </tr>
-
             }
 
         </table>

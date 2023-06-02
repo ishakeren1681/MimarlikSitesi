@@ -24,8 +24,6 @@ namespace ENGrupMimarlikIsparta.Models
 
         public DbSet<Hizmetlerimiz> Hizmetlerimizs { get; set; }
 
-        
-
 
     }
 }

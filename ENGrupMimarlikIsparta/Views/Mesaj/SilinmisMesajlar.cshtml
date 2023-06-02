@@ -15,10 +15,7 @@
 <br />
 <div>
 
-
-
     <h5>Silinen Mesaj Sayısı <span style="color:red">@mesajSayisi</span> </h5>
-
 
     <center>
         <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
@@ -29,6 +26,7 @@
 
                 <th>Konu</th>
                 <th>Mesaj</th>
+                <th>Tarih</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -46,11 +44,12 @@
 
                     <td>@item.Konu.Substring(0, Math.Min(item.Konu.Length, 45))...</td>
                     <td><a href="/Mesaj/MesajDetay/@item.MesajID">@item.MesajDetay.Substring(0, Math.Min(item.MesajDetay.Length, 45))...</a></td>
+                    <td>@item.Tarih.ToShortDateString()</td>
                     <td></td>
                     <td>
                         <center>
                             <button onclick="mesajSil('@item.MesajID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                            <button onclick="mesajSil('@item.MesajID')" class="btn btn-warning"><i class="fas fa-undo"></i></button>
+                            <button onclick="gelenKutusunaTasi('@item.MesajID')" class="btn btn-warning"><i class="fas fa-undo"></i></button>
                         </center>
                     </td>
                 </tr>
@@ -69,7 +68,7 @@
         form.submit();
     }
 
-    function mesajSil(mesajID) {
+    function gelenKutusunaTasi(mesajID) {
         var form = document.createElement('form');
         form.method = 'post';
         form.action = '/Mesaj/GelenKutusunaTasi/' + mesajID;

@@ -41,13 +41,15 @@ namespace ENGrupMimarlikIsparta.Controllers
 
         public ActionResult GelenKutusu()
         {
-            var mesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Yeni" || x.MesajStatusu == "Okundu").ToList();
+            var mesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Yeni" || x.MesajStatusu == "Okundu").OrderByDescending(x => x.Tarih).ToList();
             return View(mesajlariGetir);
         }
 
+       
+
         public ActionResult SilinmisMesajlar()
         {
-            var silinmisMesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Silinen").ToList();
+            var silinmisMesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Silinen").OrderByDescending(x => x.Tarih).ToList();
             return View(silinmisMesajlariGetir);
         }
 
@@ -77,6 +79,8 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.SaveChanges();
             return RedirectToAction("SilinmisMesajlar", "Mesaj");
         }
+
+       
 
         public ActionResult OkunmadıOlarakIsaretle(int id)
         {

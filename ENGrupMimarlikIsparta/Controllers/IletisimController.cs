@@ -32,7 +32,5 @@ namespace ENGrupMimarlikIsparta.Controllers
             var hizmetBilgileri = c.Hizmetlerimizs.ToList();
             return PartialView(hizmetBilgileri);
         }
-
-      
     }
 }

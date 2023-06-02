@@ -30,13 +30,14 @@ namespace ENGrupMimarlikIsparta.Controllers
         [HttpPost]
         public ActionResult PersonelEkle(Personel p)
         {
+            string fotografTarihi = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
+
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
-                var file = Request.Files[0];
-                string dosyaAdi = Path.GetFileName(file.FileName);
-                string uzanti = Path.GetExtension(file.FileName);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
-                file.SaveAs(yol);
+                Request.Files[0].SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
             }
             c.Personels.Add(p);
@@ -50,6 +51,11 @@ namespace ENGrupMimarlikIsparta.Controllers
         public ActionResult PersonelSil(int id)
         {
             var personelBul = c.Personels.Find(id);
+            string eskiDosyaYolu = Server.MapPath(personelBul.Fotograf);
+            if (System.IO.File.Exists(eskiDosyaYolu))
+            {
+                System.IO.File.Delete(eskiDosyaYolu);
+            }
             c.Personels.Remove(personelBul);
             c.SaveChanges();
             return RedirectToAction("HakkimizdaIndex","Hakkimizda");
@@ -64,11 +70,20 @@ namespace ENGrupMimarlikIsparta.Controllers
         public ActionResult PersonelGuncelle(Personel p)
         {
             var personelVeri = c.Personels.Find(p.PersonelID);
+            string fotografTarihi = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
 
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
+                //ÖNCEKİ DOSYAYI SİLME
+                string eskiDosyaYolu = Server.MapPath(personelVeri.Fotograf);
+                if (System.IO.File.Exists(eskiDosyaYolu))
+                {
+                    System.IO.File.Delete(eskiDosyaYolu);
+                }
+
+
                 var file = Request.Files[0];
-                string dosyaAdi = Path.GetFileName(file.FileName);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(file.FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 file.SaveAs(yol);

@@ -7,34 +7,35 @@
 
 @using (Html.BeginForm("AdminGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="form-group" style="margin:25px 35px 35px 35px">
+<div class="form-group" style="margin:25px 35px 35px 35px">
 
 
-        @Html.HiddenFor(x => x.AdminID)
+    @Html.HiddenFor(x => x.AdminID)
 
 
-        <h2>Firma Yetkilisi</h2>
-        @Html.Label("Firma Yetili Adı Soyadı (*)")
-        <div>
-            @Html.ValidationMessageFor(x => x.KullaniciAdi)
-        </div>
-        @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    <h2>Firma Yetkilisi</h2>
+    @Html.Label("Firma Yetili Adı Soyadı (*)")
+    <div>
+        @Html.ValidationMessageFor(x => x.KullaniciAdi)
+    </div>
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
 
 
-        @Html.Label("Firma Mail Adresi (*)")
-        <div>
-            @Html.ValidationMessageFor(x => x.Email)
-        </div>
-        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.Label("Firma Mail Adresi (*)")
+    <div>
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
 
 
-        @Html.Label("Yetki Statüsü (*)")
-        <div>
-            @Html.ValidationMessageFor(x => x.YetkiStatusu)
-        </div>
-        @Html.TextBoxFor(x => x.YetkiStatusu, new { @class = "form-control" })
+    @Html.Label("Yetki Statüsü (*)")
+    <div>
+        @Html.ValidationMessageFor(x => x.YetkiStatusu)
+    </div>
+    @Html.TextBoxFor(x => x.YetkiStatusu, new { @class = "form-control" })
 
-
+    @if (Roles.IsUserInRole("A"))
+    {
         @Html.Label("Şifre (*)")
         <div>
             @Html.ValidationMessageFor(x => x.Sifre)
@@ -52,8 +53,12 @@
         @Html.TextBoxFor(x => x.SifreTekrar, new { @class = "form-control" })
 
         <br />
+
+
         <button type="submit" class="btn btn-success">Güncelle</button>
-    </div>
+    }
+
+</div>
 }
 
 

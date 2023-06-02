@@ -19,6 +19,8 @@ namespace ENGrupMimarlikIsparta.Models.Siniflar
         [Required(ErrorMessage = "Bu alanı boş bırakamazsınız.")]
         public string Konu { get; set; }
         [Required(ErrorMessage = "Bu alanı boş bırakamazsınız.")]
+
+        public DateTime Tarih { get; set; }
         public string MesajDetay { get; set; }
         public string TelefonNumarasi { get; set; }
         public string MesajStatusu { get; set; }

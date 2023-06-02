@@ -15,5 +15,6 @@ namespace ENGrupMimarlikIsparta.Models.Siniflar
         public string Baslik { get; set; }
         public string Aciklama { get; set; }
         public string Yonu { get; set; }
+
     }
 }

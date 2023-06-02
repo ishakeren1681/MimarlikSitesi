@@ -297,6 +297,10 @@
     <Compile Include="Migrations\202305292304053_hizmet.designer.cs">
       <DependentUpon>202305292304053_hizmet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306021749053_detaylar.cs" />
+    <Compile Include="Migrations\202306021749053_detaylar.designer.cs">
+      <DependentUpon>202306021749053_detaylar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminRoleProvider.cs" />
     <Compile Include="Models\Context.cs" />
@@ -594,6 +598,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305292304053_hizmet.resx">
       <DependentUpon>202305292304053_hizmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306021749053_detaylar.resx">
+      <DependentUpon>202306021749053_detaylar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ENGrupMimarlikIsparta.Migrations.hakkimizda.resources" />
     <EmbeddedResource Include="obj\Debug\ENGrupMimarlikIsparta.Migrations.sayfalar.resources" />

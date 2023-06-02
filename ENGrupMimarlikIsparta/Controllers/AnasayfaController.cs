@@ -32,10 +32,11 @@ namespace ENGrupMimarlikIsparta.Controllers
         [HttpPost]
         public ActionResult VeriEkle(Detaylar p)
         {
+            string fotografTarihi = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
+
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
-                string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
-                //string dosyaAdi = "Foto";
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 Request.Files[0].SaveAs(yol);
@@ -46,6 +47,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             p.HangiSayfa = "Anasayfa";
             c.Detaylars.Add(p);
             c.SaveChanges();
+
             return RedirectToAction("AnasayfaIndex");
 
         }
@@ -58,33 +60,46 @@ namespace ENGrupMimarlikIsparta.Controllers
 
         public ActionResult AnasayfaVeriGuncelle(Detaylar p)
         {
-
             var anasayfaVeri = c.Detaylars.Find(p.DetayID);
+
+            string fotografTarihi = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
 
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
+                //ÖNCEKİ DOSYAYI SİLME
+                string eskiDosyaYolu = Server.MapPath(anasayfaVeri.Fotograf);
+                if (System.IO.File.Exists(eskiDosyaYolu))
+                {
+                    System.IO.File.Delete(eskiDosyaYolu);
+                }
+
                 var file = Request.Files[0];
-                string dosyaAdi = Path.GetFileName(file.FileName);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(file.FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 file.SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
                 anasayfaVeri.Fotograf = p.Fotograf;
             }
-      
+
             anasayfaVeri.Yonu = Request.Form["Yonu"];
             anasayfaVeri.Aciklama = p.Aciklama;
             anasayfaVeri.Baslik = p.Baslik;
             anasayfaVeri.Yonu = p.Yonu;
 
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
-
             return RedirectToAction("AnasayfaIndex");
-
         }
+
+
         public ActionResult VeriSil(int id)
         {
             var sütunSil = c.Detaylars.Find(id);
+            string eskiDosyaYolu = Server.MapPath(sütunSil.Fotograf);
+            if (System.IO.File.Exists(eskiDosyaYolu))
+            {
+                System.IO.File.Delete(eskiDosyaYolu);
+            }
             c.Detaylars.Remove(sütunSil);
             c.SaveChanges();
             return RedirectToAction("AnasayfaIndex");
