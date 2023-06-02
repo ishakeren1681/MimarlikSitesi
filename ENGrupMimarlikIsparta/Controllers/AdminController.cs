@@ -129,7 +129,7 @@ namespace ENGrupMimarlikIsparta.Controllers
                 sosyalMedyaVeri.instagramAdresi = p.instagramAdresi;
 
                 c.SaveChanges();
-                return RedirectToAction("SosyalMedya", "Login", p);
+                return RedirectToAction("SosyalMedya", "Admin", p);
             }
             else
             {

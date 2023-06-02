@@ -16,7 +16,6 @@ namespace ENGrupMimarlikIsparta.Controllers
 
         // GET: Mesaj
         [HttpGet]
-
         public ActionResult MesajBirak()
         {
             return View();
@@ -44,8 +43,6 @@ namespace ENGrupMimarlikIsparta.Controllers
             var mesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Yeni" || x.MesajStatusu == "Okundu").OrderByDescending(x => x.Tarih).ToList();
             return View(mesajlariGetir);
         }
-
-       
 
         public ActionResult SilinmisMesajlar()
         {
@@ -79,8 +76,6 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.SaveChanges();
             return RedirectToAction("SilinmisMesajlar", "Mesaj");
         }
-
-       
 
         public ActionResult OkunmadıOlarakIsaretle(int id)
         {
