@@ -35,6 +35,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
                 string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
+                //string dosyaAdi = "Foto";
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 Request.Files[0].SaveAs(yol);

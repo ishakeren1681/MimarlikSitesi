@@ -22,6 +22,8 @@ namespace ENGrupMimarlikIsparta.Controllers
             return View(adminler);
         }
 
+
+        // ADMİN EKLEME
         [HttpGet]
         public ActionResult AdminEkle()
         {
@@ -33,10 +35,19 @@ namespace ENGrupMimarlikIsparta.Controllers
         {
             if (ModelState.IsValid)
             {
-                var bilgiler = c.Admins.FirstOrDefault(x => x.Email == p.Email);
+                var bilgiler = c.Admins.FirstOrDefault(x => x.Email == p.Email || x.KullaniciAdi == p.KullaniciAdi);
                 if (bilgiler != null)
                 {
-                    ViewBag.mailVar = "Böyle bir mail adresi daha önce alınmış şifrenizi mi unuttunuz?";
+                    if (bilgiler.Email == p.Email)
+                    {
+                        ViewBag.mailVar = "Böyle bir mail adresi daha önce alınmış!";
+                    }
+                    else if (bilgiler.KullaniciAdi == p.KullaniciAdi)
+                    {
+                        ViewBag.kullaniciVar = "Böyle bir kullanıcı adı daha önce alınmış!";
+                    }
+                    
+                    
                     return View(p);
                 }
                 else
@@ -52,15 +63,22 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
         }
 
+        // ADMİN SİL
         public ActionResult AdminSil(int id)
         {
             var adminBul = c.Admins.Find(id);
-            c.Admins.Remove(adminBul);
-            c.SaveChanges();
+            if (id != 1)
+            {
+                c.Admins.Remove(adminBul);
+                c.SaveChanges();
+            }
+
             return RedirectToAction("AdminIndex", "Admin");
         }
 
-        public ActionResult AdminBilgileriniGetir(int id =2)
+
+        // ADMİN BİLGİLERİ
+        public ActionResult AdminBilgileriniGetir(int id)
         {
             var adminBilgileri = c.Admins.Find(id);
             return View("AdminBilgileriniGetir",adminBilgileri);
@@ -85,6 +103,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
         }
 
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
@@ -92,6 +111,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             return RedirectToAction("Anasayfa", "Sayfalar");
         }
 
+        // SOSYAL MEDYA BİLGİLERİ
         public ActionResult SosyalMedya(int id = 1)
         {
             var sosyalMedya = c.SosyalMedyaAyarlars.Find(id);
@@ -117,6 +137,9 @@ namespace ENGrupMimarlikIsparta.Controllers
         }
 
       
+
+
+        // ILETİSIM BİLGİLERİ 
         public ActionResult IletisimBilgisiGetir(int id = 1)
         {
             var iletisimBilgileri = c.IletisimBilgileris.Find(id);
@@ -148,6 +171,8 @@ namespace ENGrupMimarlikIsparta.Controllers
             return RedirectToAction("IletisimBilgisiGetir");
         }
 
+
+        // FİRMA LOGOSU
         public ActionResult FirmaLogosu(int id = 1)
         {
             var iletisimBilgileri = c.IletisimBilgileris.Find(id);
@@ -156,7 +181,6 @@ namespace ENGrupMimarlikIsparta.Controllers
 
         public ActionResult FirmaLogosuGuncelle(IletisimBilgileri p)
         {
-
             var iletisimVeri = c.IletisimBilgileris.Find(p.IletisimID);
 
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
@@ -174,5 +198,36 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             return RedirectToAction("FirmaLogosu", "Admin");
         }
+
+
+        //FİRMA MAİL ADRESİ
+        public ActionResult FirmaMailAdresi(int id = 1)
+        {
+            var firmaEmaili = c.Admins.Find(id);
+            return View("FirmaMailAdresi", firmaEmaili);
+        }
+
+
+        public ActionResult FirmaMailAdresiGuncelle(Admin p)
+        {
+            var adminVeri = c.Admins.Find(p.AdminID);
+            if (ModelState.IsValid)
+            {
+                adminVeri.Email = p.Email;
+                adminVeri.Sifre = p.Sifre;
+                adminVeri.KullaniciAdi = p.KullaniciAdi;
+                adminVeri.SifreTekrar = p.SifreTekrar;
+                adminVeri.YetkiStatusu = p.YetkiStatusu;
+                c.SaveChanges();
+                return RedirectToAction("AdminIndex", "Admin", p);
+            }
+            else
+            {
+                return View("AdminBilgileriniGetir", p);
+            }
+        }
+
+
+       
     }
 }

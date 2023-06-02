@@ -16,13 +16,21 @@
                 <th>#</th>
                 <th>Kullanıcı Adı</th>
                 <th>Email</th>
-                <th>Sifre</th>
+                @if (Roles.IsUserInRole("A"))
+                {
+                    <th>Sifre</th>
+                }
+
                 <th>Yetki Statüsü</th>
-                <th>
-                    <center>
-                        İşlemler
-                    </center>
-                </th>
+
+                @if (Roles.IsUserInRole("A"))
+                {
+                    <th>
+                        <center>
+                            İşlemler
+                        </center>
+                    </th>
+                }
             </tr>
 
             @{ int siraNo = 0; }
@@ -34,15 +42,22 @@
                     <td>@{siraNo++;} @siraNo</td>
                     <td>@item.KullaniciAdi</td>
                     <td>@item.Email</td>
-                    <td>@item.Sifre</td>
-                    <td>@item.YetkiStatusu</td>
-                    <td>
-                        <center>
+                    @if (Roles.IsUserInRole("A"))
+                    {
+                        <td>@item.Sifre</td>
+                    }
 
-                            <button onclick="adminSil('@item.AdminID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                            <button onclick="adminBilgileriniGetir('@item.AdminID')" class="btn btn-success"><i class="fas fa-pen"></i></button>
-                        </center>
-                    </td>
+                    <td>@item.YetkiStatusu</td>
+                    @if (Roles.IsUserInRole("A"))
+                    {
+                        <td>
+                            <center>
+                                <button onclick="adminSil('@item.AdminID')" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <button onclick="adminBilgileriniGetir('@item.AdminID')" class="btn btn-success"><i class="fas fa-pen"></i></button>
+                            </center>
+                        </td>
+                    }
+
                 </tr>
             }
         </table>

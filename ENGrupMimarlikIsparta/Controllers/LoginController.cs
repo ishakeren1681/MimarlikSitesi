@@ -55,12 +55,16 @@ namespace ENGrupMimarlikIsparta.Controllers
         public ActionResult SifremiUnuttum(Admin p)
         {
             var bilgiler = c.Admins.FirstOrDefault(x => x.Email == p.Email);
+
+            var aliciMail = c.Admins.Where(x => x.AdminID == 1).Select(y => y.Email).FirstOrDefault();
+            var aliciSifre = c.Admins.Where(x => x.AdminID == 1).Select(y => y.Sifre).FirstOrDefault();
+
             try
             {
                 if (bilgiler != null)
                 {
-                    string fromEmail = "ishakeren3255@hotmail.com";
-                    string fromPassword = "ishakeren1";
+                    string fromEmail = aliciMail.ToString();
+                    string fromPassword = aliciSifre.ToString();
                     string toEmail = bilgiler.Email;
 
                     string randomSifre = RandomSifreOlustur(5);
