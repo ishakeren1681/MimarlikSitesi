@@ -15,6 +15,9 @@ namespace ENGrupMimarlikIsparta.Controllers
         public ActionResult Anasayfa()
         {
             var veriler = c.Detaylars.Where(x => x.HangiSayfa == "Anasayfa").ToList();
+
+           
+
             return View(veriler);
         }
 

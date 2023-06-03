@@ -73,6 +73,16 @@ namespace ENGrupMimarlikIsparta.Controllers
                 c.SaveChanges();
             }
 
+            if (User.Identity.Name == adminBul.KullaniciAdi)
+            {
+                // Authentication'dan çıkış yap
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                return RedirectToAction("Anasayfa", "Sayfalar");
+
+        
+            }
+
             return RedirectToAction("AdminIndex", "Admin");
         }
 

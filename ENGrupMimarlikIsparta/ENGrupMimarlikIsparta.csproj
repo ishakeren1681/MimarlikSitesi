@@ -252,6 +252,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnasayfaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\HizmetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -351,7 +352,6 @@
     <Content Include="ENMimarlik\img\insaat.jpg" />
     <Content Include="ENMimarlik\img\logo.png" />
     <Content Include="ENMimarlik\img\mimar.jpg" />
-    <Content Include="ENMimarlik\img\cerceve.png" />
     <Content Include="ENMimarlik\img\projeler\p1.jpg" />
     <Content Include="ENMimarlik\img\projeler\p2.jpg" />
     <Content Include="ENMimarlik\img\projeler\p4.jpg" />
@@ -555,6 +555,7 @@
     <Content Include="Views\Sayfalar\SosyalMedyaPartial.cshtml" />
     <Content Include="Views\Sayfalar\FirmaLogosu_SolKose.cshtml" />
     <Content Include="Views\Admin\FirmaMailAdresi.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
