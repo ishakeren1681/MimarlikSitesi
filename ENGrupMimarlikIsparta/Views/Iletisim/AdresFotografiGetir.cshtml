@@ -1,0 +1,56 @@
+﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Detaylar
+@{
+    ViewBag.Title = "AdresFotografiGetir";
+    Layout = "~/Views/Shared/GenelLayout.cshtml";
+}
+
+<div class="hakkimizda-background">
+    <center>
+        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
+        <h1 class="background-sayfa-ismi">Iletisim</h1>
+    </center>
+</div>
+
+@using (Html.BeginForm("AdresFotografiGuncelle", "Iletisim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group" style="margin:25px 35px 35px 35px">
+
+        <h2>Adres Fotografı Güncelleme Sayfası</h2>
+        @Html.HiddenFor(x => x.DetayID)
+
+        @Html.Label("Fotoğraf")
+        <br />
+        <div style="justify-content: center; align-items: center; ">
+            <img id="fotogragPreview" src="@Model.Fotograf" alt="Resim Yüklenemedi" class="form-control" style="width:800px; height:550px" />
+            <br />
+            <input id="FotografInput" type="file" name="Fotograf" />
+        </div>
+
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.getElementById("FotografInput").addEventListener("change", function () {
+        var preview = document.getElementById("fotogragPreview");
+        var file = this.files[0];
+        var reader = new FileReader();
+        0
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "@Model.Fotograf";
+        }
+    });
+</script>
+
+
+
+
+
