@@ -19,13 +19,17 @@
             @foreach (var item in Model)
             {
                 <div class="projeSize">
-                    <div class="insaat-muh" style="display:flex; ">
-                        <img style="width:450px; height:450px;" src="@item.Fotograf" alt=""><br>
-                    </div>
+                    @if (!string.IsNullOrEmpty(item.Fotograf))
+                    {
+                        <div class="insaat-muh" style="display:flex; ">
+                            <img style="width:450px; height:450px;" src="@item.Fotograf" alt=""><br>
+                        </div>
+                    }
+
+
+                    <br />
 
                     <div>
-                        <br />
-
                         <div>
 
                             <a href="/Personel/PersonelSil/@item.PersonelID" class="btn btn-danger">
@@ -46,17 +50,17 @@
                     <div>
                         <span class="ekip-telno">@item.TelefonNumarasi</span>
                     </div>
-
                 </div>
+
             }
         </div>
 
     </div>
     <br />
 }
-    <div style="text-align: right; margin-right: 50px ">
-        <a class="btn btn-primary" href="/Personel/PersonelEkle/">Personel Ekle</a>
-    </div>
+<div style="text-align: right; margin-right: 50px ">
+    <a class="btn btn-primary" href="/Personel/PersonelEkle/">Personel Ekle</a>
+</div>
 
 
 

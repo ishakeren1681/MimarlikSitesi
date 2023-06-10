@@ -266,41 +266,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305242031217_hakkimizda.cs" />
-    <Compile Include="Migrations\202305242031217_hakkimizda.designer.cs">
-      <DependentUpon>202305242031217_hakkimizda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305242138581_sayfalar.cs" />
-    <Compile Include="Migrations\202305242138581_sayfalar.designer.cs">
-      <DependentUpon>202305242138581_sayfalar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305271802360_iletisimbilgileri.cs" />
-    <Compile Include="Migrations\202305271802360_iletisimbilgileri.designer.cs">
-      <DependentUpon>202305271802360_iletisimbilgileri.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305271844305_personel.cs" />
-    <Compile Include="Migrations\202305271844305_personel.designer.cs">
-      <DependentUpon>202305271844305_personel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305282012220_eposta.cs" />
-    <Compile Include="Migrations\202305282012220_eposta.designer.cs">
-      <DependentUpon>202305282012220_eposta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305290658070_adminler.cs" />
-    <Compile Include="Migrations\202305290658070_adminler.designer.cs">
-      <DependentUpon>202305290658070_adminler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305290950485_loginOzellik.cs" />
-    <Compile Include="Migrations\202305290950485_loginOzellik.designer.cs">
-      <DependentUpon>202305290950485_loginOzellik.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305292304053_hizmet.cs" />
-    <Compile Include="Migrations\202305292304053_hizmet.designer.cs">
-      <DependentUpon>202305292304053_hizmet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202306021749053_detaylar.cs" />
-    <Compile Include="Migrations\202306021749053_detaylar.designer.cs">
-      <DependentUpon>202306021749053_detaylar.cs</DependentUpon>
+    <Compile Include="Migrations\202306052101161_YUKLE.cs" />
+    <Compile Include="Migrations\202306052101161_YUKLE.designer.cs">
+      <DependentUpon>202306052101161_YUKLE.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminRoleProvider.cs" />
@@ -367,7 +335,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="obj\Debug\ENGrupMimarlikIsparta.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\ENGrupMimarlikIsparta.dll" />
-    <Content Include="obj\Debug\ENGrupMimarlikIsparta.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ENMimarlik\img\projeler\Thumbs.db" />
@@ -576,35 +543,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202305242031217_hakkimizda.resx">
-      <DependentUpon>202305242031217_hakkimizda.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306052101161_YUKLE.resx">
+      <DependentUpon>202306052101161_YUKLE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305242138581_sayfalar.resx">
-      <DependentUpon>202305242138581_sayfalar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305271802360_iletisimbilgileri.resx">
-      <DependentUpon>202305271802360_iletisimbilgileri.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305271844305_personel.resx">
-      <DependentUpon>202305271844305_personel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305282012220_eposta.resx">
-      <DependentUpon>202305282012220_eposta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305290658070_adminler.resx">
-      <DependentUpon>202305290658070_adminler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305290950485_loginOzellik.resx">
-      <DependentUpon>202305290950485_loginOzellik.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305292304053_hizmet.resx">
-      <DependentUpon>202305292304053_hizmet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306021749053_detaylar.resx">
-      <DependentUpon>202306021749053_detaylar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\ENGrupMimarlikIsparta.Migrations.hakkimizda.resources" />
-    <EmbeddedResource Include="obj\Debug\ENGrupMimarlikIsparta.Migrations.sayfalar.resources" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

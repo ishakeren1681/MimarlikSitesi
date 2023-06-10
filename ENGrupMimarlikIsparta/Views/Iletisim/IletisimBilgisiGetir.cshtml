@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/GenelLayout.cshtml";
 }
 
-
+<title>İletişim Bilgileri | E&N Mimarlık Isparta Özakça Mimarlık</title>
 <div class="hakkimizda-background">
     <center>
         <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
@@ -19,10 +19,6 @@
         <h2>İletişim Bilgilerini Güncelleme Sayfası</h2>
         @Html.HiddenFor(x => x.IletisimID)
 
-        @Html.Label("Fotoğraf")
-        <br />
-        @Html.DisplayFor(x => x.Fotograf, new { @class = "form-control" })
-        <input type="file" name="Fotograf" class="form-control btn btn-info" />
 
         @Html.Label("Adres")
         @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })

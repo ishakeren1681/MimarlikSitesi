@@ -7,18 +7,18 @@ namespace ENGrupMimarlikIsparta.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class hakkimizda : IMigrationMetadata
+    public sealed partial class YUKLE : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(hakkimizda));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(YUKLE));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305242031217_hakkimizda"; }
+            get { return "202306052101161_YUKLE"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

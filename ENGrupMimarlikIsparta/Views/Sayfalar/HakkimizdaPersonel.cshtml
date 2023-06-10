@@ -11,44 +11,47 @@
     Layout = null;
 }
 
-
-<div style="background-color:slategray ; padding:15px">
-    <div>
-        <center>
-            <span class="ekip-baslik">Ekibimiz</span><br>
-        </center>
-    </div>
-
-
-    <div class="ekip-resimler" style="display:flex">
-        @foreach (var item in Model)
-        {
-            <div class="projeSize">
-                <div class="insaat-muh" style="display:flex; ">
-                    <img style="width:350px; height:750px" class="avatar-img insaat-muh" src="@item.Fotograf" alt=""><br>
+@if (Model.Count > 0)
+{
+    <div style="background-color:slategray ; padding:15px">
+        <div>
+            <center>
+                <span class="ekip-baslik">Ekibimiz</span><br>
+            </center>
+        </div>
 
 
+        <div class="ekip-resimler" style="display:flex">
+            @foreach (var item in Model)
+            {
+                <div class="projeSize">
+                    @if (!string.IsNullOrEmpty(item.Fotograf))
+                    {
+                        <div class="insaat-muh" style="display:flex; ">
+                            <img style="width:450px; height:450px" class="avatar-img insaat-muh" src="@item.Fotograf" alt=""><br>
+                        </div>
+                    }
 
-                </div>
-
-                <div>
                     <br />
-                    <span class="ekip-isimler">@item.AdSoyad</span> <br>
-                </div>
 
+                    <div>
+                        <span class="ekip-isimler">@item.AdSoyad</span> <br>
+                    </div>
 
-                <div>
-                    <span class="ekip-meslekler">@item.Unvan</span> <br>
-                </div>
-                <div>
-                    <span class="ekip-telno">@item.TelefonNumarasi</span>
-                </div>
+                    <div>
+                        <span class="ekip-meslekler">@item.Unvan</span> <br>
+                    </div>
 
-            </div>
-        }
+                    <div>
+                        <span class="ekip-telno">@item.TelefonNumarasi</span>
+                    </div>
+
+                </div>
+            }
+        </div>
+
     </div>
-
-</div>
+}
 <br />
 
 

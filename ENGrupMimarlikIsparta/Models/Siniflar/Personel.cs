@@ -14,7 +14,5 @@ namespace ENGrupMimarlikIsparta.Models.Siniflar
         public string Fotograf { get; set; }
         public string Unvan { get; set; }
         public string TelefonNumarasi { get; set; }
-
-        public bool Durum { get; set; }
     }
 }

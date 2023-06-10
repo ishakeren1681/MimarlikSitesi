@@ -5,7 +5,7 @@
 }
 
 
-
+<title> Firma Logosu | E&N Mimarlık Isparta Özakça Mimarlık</title>
 
 @using (Html.BeginForm("FirmaLogosuGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -13,10 +13,11 @@
 
         <h2>İletişim Bilgilerini Güncelleme Sayfası</h2>
         @Html.HiddenFor(x => x.IletisimID)
-
+        <br />
         <div style="display: flex; justify-content: center; align-items: center; height: 55vh;">
             <img id="firmaLogosuPreview" src="@Model.FirmaLogosu" alt="Firma Logosu" class="form-control" style="width:400px; height:400px" />
         </div>
+        <br />
         <input type="file" id="firmaLogosuInput" name="FirmaLogosu" />
 
         <br />

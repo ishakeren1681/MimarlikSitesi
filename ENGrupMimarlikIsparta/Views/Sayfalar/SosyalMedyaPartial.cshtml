@@ -1,28 +1,29 @@
-﻿
-@{
-    if (!string.IsNullOrEmpty(@ViewBag.facebookAdresi))
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
+@model List<SosyalMedyaAyarlar>
+@foreach (var item in Model)
+{
+
+    if (!string.IsNullOrEmpty(item.facebookAdresi))
     {
-        <a class="bi bi-facebook" target="_blank" style="font-size: 25px; color: #3b5998; text-decoration: none" href="@ViewBag.facebookAdresi">
+        <a class="bi bi-facebook" target="_blank" style="font-size: 25px; color: #3b5998; text-decoration: none" href="@item.facebookAdresi">
         </a>
     }
-    if (!string.IsNullOrEmpty(@ViewBag.twitterAdresi))
+    if (!string.IsNullOrEmpty(item.twitterAdresi))
     {
-        <a class="bi bi-twitter" target="_blank" style="font-size: 25px; color: #1da1f2; text-decoration: none " href="@ViewBag.twitterAdresi">
+        <a class="bi bi-twitter" target="_blank" style="font-size: 25px; color: #1da1f2; text-decoration: none " href="@item.twitterAdresi">
         </a>
     }
 
-    if (!string.IsNullOrEmpty(@ViewBag.instagramAdresi))
+    if (!string.IsNullOrEmpty(item.instagramAdresi))
     {
-        <a class="bi bi-instagram" target="_blank" style="font-size: 25px; color: #c13584; text-decoration: none" href="@ViewBag.instagramAdresi">
+        <a class="bi bi-instagram" target="_blank" style="font-size: 25px; color: #c13584; text-decoration: none" href="@item.instagramAdresi">
         </a>
     }
 
-    if (!string.IsNullOrEmpty(@ViewBag.linkedinAdresi)) 
+    if (!string.IsNullOrEmpty(item.linkedinAdresi))
     {
-        <a class="bi bi-linkedin" target="_blank" style="font-size: 25px; color: #0077b5; text-decoration: none" href="@ViewBag.linkedinAdresi">
+        <a class="bi bi-linkedin" target="_blank" style="font-size: 25px; color: #0077b5; text-decoration: none" href="@item.linkedinAdresi">
         </a>
     }
-
 
 }
-

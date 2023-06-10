@@ -1,11 +1,10 @@
 ﻿@using ENGrupMimarlikIsparta.Models.Siniflar
-@model List<Detaylar> 
+@model List<Detaylar>
 @{
     ViewBag.Title = "NelerYapiyoruz";
     Layout = "~/Views/Shared/KullaniciLayout.cshtml";
 }
-
-
+<title>Neler Yapıyoruz? | E&N Mimarlık Isparta Özakça Mimarlık</title>
 <div class="hakkimizda-background">
     <center>
         <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
@@ -17,22 +16,26 @@
 @foreach (var item in Model)
 {
     <div class="neleryapiyoruz-divler">
+
         @if (!string.IsNullOrEmpty(item.Fotograf))
         {
-            <img class="neleryapiyoruz-img projeSize" src=@item.Fotograf alt="">
+            <div class="projeSize" style="width: 35%;">
+                <img style="width:100%; height:100%" src=@item.Fotograf alt="">
+            </div>
         }
-        <div>
+
+        <div style="width:35%;">
             @if (!string.IsNullOrEmpty(item.Baslik))
             {
                 <div>
-                    <h1 class="neleryapiyoruz-text">@item.Baslik</h1>
+                    <h1>@item.Baslik</h1>
                 </div>
             }
             <br />
             @if (!string.IsNullOrEmpty(item.Aciklama))
             {
                 <div>
-                    <h2 class="neleryapiyoruz-text">@item.Aciklama</h2>
+                    <h2>@item.Aciklama</h2>
                 </div>
             }
         </div>

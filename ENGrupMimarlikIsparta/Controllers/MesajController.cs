@@ -14,30 +14,6 @@ namespace ENGrupMimarlikIsparta.Controllers
     {
         Context c = new Context();
 
-        // GET: Mesaj
-        [HttpGet]
-        public ActionResult MesajBirak()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult MesajBirak(EPosta p)
-        {
-
-            if (ModelState.IsValid)
-            {
-                p.MesajStatusu = "Yeni";
-                c.EPostas.Add(p);
-                c.SaveChanges();
-                return RedirectToAction("IletisimIndex", "Iletisim");
-            }
-            else
-            {
-                return View(p);
-            }
-        }
-
         public ActionResult GelenKutusu()
         {
             var mesajlariGetir = c.EPostas.Where(x => x.MesajStatusu == "Yeni" || x.MesajStatusu == "Okundu").OrderByDescending(x => x.Tarih).ToList();
