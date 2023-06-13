@@ -1,138 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımızda | E&N Mimarlık </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"> 
+<title>FLEXBOX</title>
+<link rel="stylesheet" type="text/css" href="stil.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<meta name="description" content="E&N Mimarlık hakkında bilgiler içeren web sitesi. Projelerimiz, ekibimiz ve hizmetlerimiz hakkında daha fazla bilgi edinin.">
 </head>
+
 <body>
+    <div class="menu-bar">
+        <div class="logo"><img src="img/logo.png"></div>
 
-        <div class="navbar">
-            <img class="logo-img" src="img/logo.png" alt="">
-            
-            <div class="menu-list">
-                <a class="menu-list-item" href="anasayfa.html">Anasayfa</a>
-                <a class="menu-active" href="hakkimizda.html">Hakkımızda</a>
-                <a class="menu-list-item" href="neleryapiyoruz.html">Neler Yapıyoruz</a>
-                <a class="menu-list-item" href="#">Blog</a>
-                <a class="menu-list-item" href="portfolyo.html">Portfolyo</a>
-                <a class="menu-list-item" href="iletisimm.html">İletişim</a>
-            </div>
+        <div class="menu">
+            <input type="checkbox" id="kontrol">
+            <label for="kontrol" class="kontrol">
+                <i class="fas fa-bars"></i>
+            </label>
 
-        </div>
-
-        <div class="hakkimizda-background">
-            <center>
-                <h1 class="background-sirket-ismi">E&N GRUP MİMARLIK</h1>
-                <h1 class="background-sayfa-ismi">Hakkımızda</h1>
-            </center>
-        </div>
-
-
-        <!--!    HAKKIMIZDA BİZ KİMİZ    -->
-
-        <div class="biz-kimiz-div">
-            <div >
-                <img class="hakkimizda-img projeSize" src="img/anasayfa6.jpg" alt="">
-
-            </div>
-            <div class="biz-kimiz-text">
-                <center>
-                <h1>Biz Kimiz?</h1>
-                <p>Biz; Ahşap Taşıyıcı Sistemler konusunda Yüksek Lisans Eğitimini tamamlamış ve bu konuda Mimarlık ve İç Mimarlık öğrencilerine dersler veren, Y.Mimar Ahmet Faruk Yıldırım tarafından, 2016 yılında, İstanbul'da kurulmuş bir Mimarlık ofisiyiz. Genelde Butik Dekorasyon İşleri yaparız.Bünyemizde İç Mimar, Mimar ve Ahşap uygulamarı yapan, yeterli mesleki ve teknik yeterliliğe sahip ekip arkaşlarımız vardır. Bu arkadaşlarla, Projelendirme, İmalat ve İmalatlara ait denetim hizmeti veririz.</p>
-                </center>
-            </div>
-        </div>
-
-
-        <!--!    HAKKIMIZDA NE YAPARIZ    -->
-
-        <div class="ne-yapariz-div">
-            <div class="ne-yapariz-text">
-                <h1> Ne yaparız?</h1>
-                <ul class="ne-yapariz-ul">
-                    <li class="ne-yapariz-list"> Mimari Proje</li>
-                    <li class="ne-yapariz-list"> İnşaat Hizmetleri</li>
-                    <li class="ne-yapariz-list"> 3 Boyut Tasarımlar</li>
-                    <li class="ne-yapariz-list"> BIM Projeleri</li>
-                </ul>
-            </div>
-
-            <div class="ne-yapariz-img">
-
-                <img class="hakkimizda-img projeSize" src="img/anasayfa6.jpg" alt="">
-
-            </div>
-        </div>
-
-                <!--!    HAKKIMIZDA EKİBİMİZ    -->
-
-
-        <div class="ekibimiz-div">
-
-        <br>
-            <center> 
-                <span class="ekip-baslik">Ekibimiz</span><br>
-                <div class="ekip-resimler">
-                    <div class="insaat-muh">
-                        <img class="avatar-img projeSize" src="img/insaat.jpg" alt=""><br>
-                        <span class="ekip-isimler">Mustafa Kütükcü</span> <br>
-                        <span class="ekip-meslekler">İnşaat Mühendisi</span> <br>
-                        <span class="ekip-telno">(+90) 533 964 62 77</span>
-                    </div>
-                    <div class="mimar">
-                        <img class="avatar-img projeSize" src="img/mimar.jpg" alt=""><br>
-                        <span class="ekip-isimler">Zehra Kütükcü</span> <br>
-                        <span class="ekip-meslekler">Mimar</span><br>
-                        <span class="ekip-telno">(+90) 533 964 62 75</span>
-                    </div>
-                </div>
-            </center>
-
-
-
-            
-        </div>
-
-        <!--!    HAKKIMIZDA İLETİŞİM    -->
-
-
-        <div class="bottom-info">
-            <ul class="bottom-ul"> İletişim Bilgileri
-                <li class="bottom-li">Pirimehmet Mah. 1707 Sok. No:4 Daire:203</li>
-                <li class="bottom-li">
-                    <i class="fa-sharp fa-solid fa-phone-volume"></i>
-                    0533 964 62 77</li>
-                <li class="bottom-li">0533 964 62 75</li>
-                <li class="bottom-li">aks-32@hotmail.com</li>
-     
-            </ul>
-
-            <ul class="bottom-ul"> Hizmetlerimiz
-                <li class="bottom-li">Proje</li>
-                <li class="bottom-li">Taahhüt</li>
-                <li class="bottom-li">Uygulama</li>
-     
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">Neler Yapıyoruz?</a></li>
+                <li><a href="#">Projelerimiz</a></li>
+                <li><a href="#">İletişim</a></li>
             </ul>
         </div>
-
-
-
-
-        <div class="hakkimizda-iletisim-div">
-
-
-
+        <div class="social-media">
+            <a class="fa-brands fa-square-facebook"></a>
+            <a class="fa-brands fa-square-twitter"></a>
+            <a class="fa-brands fa-square-instagram"></a>
+            <a class="fa-brands fa-linkedin"></a>
         </div>
 
-       
-
+        <div class="login">
+            <a class="fa-solid fa-circle-user"></a>
+        </div>
+    </div>
 
 
     
-    
+    <div class="galeri">
+        <div class="web">
+            <h2>Hakkımızda</h2>
+        </div>
+        <div class="web">
+            <h1>E & N MiMARLIK</h1>
+        </div>
+    </div>
+
+
+    <div class="orta-alan">
+        <div class="orta">
+            <div class="icerik">
+                <img src="img/anasayfa6.jpg">
+            </div>
+            <div class="icerik">
+                <h3>HTML DERSLERİ</h3>
+                <p>Biyografi ya da yaşam öyküsü, bir kişinin yaşamını ayrıntılı bir biçimde açıklayan bir edebiyat türüdür. Kişi kendi hayatını anlatıyorsa buna otobiyografi, şairlerin yaşam hikâyesi anlatılıyorsa da buna tezkire denir. Biyografiler eğitim, iş, ilişkiler ve ölüm gibi temel olaylardan daha fazlasını içerir.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ekip">
+        <h1>EKİBİMİZ</h1>
+        <div class="personeller">
+            <div class="personel">
+                <img src="img/mimar.jpg">
+                <p>Mimar</p>
+                <p>Zehra Özakça Kütükçü</p>
+                <p>0533 964 62 75</p>
+            </div>
+
+            <div class="personel">
+                <img src="img/insaat.jpg">
+                <p>Şirket Müdürü</p>
+                <p>Mustafa Kütükçü</p>
+                <p>0533 964 62 77</p>            
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="alt-alan">
+        <div class="icerik">
+            <h1 class="alt-baslik">Bize Ulaşın</h1>
+            <p><i class="fa-solid fa-location-dot"></i><span></span>Pirimehmet mah. 1728 Sok. No: 3/5 Merkez/Isparta</p>
+            <p><i class="fa-solid fa-phone"></i><span></span>+(90) 533 964 62 77</p>
+            <p><i class="fa-solid fa-phone"></i><span></span>+(90) 533 964 62 75</p>
+            <p><i class="fa-solid fa-envelope-open-text"></i><span></span>aks-32@hotmail.com</p>
+
+        </div>
+
+        <div class="icerik">
+            <h1 class="alt-baslik">Hizmetler</h1>
+            <p>Danışmanlık</p>
+            <p>Proje</p>
+            <p>Taahhüt</p>
+            <p>Danışmanlık</p>
+            <p>Proje</p>
+            <p>Taahhüt</p>
+        </div>
+
+        <div class="icerik">
+            <h1 class="alt-baslik">Sosyal Medya</h1>
+            <a class="fa-brands fa-square-facebook"></a>
+            <a class="fa-brands fa-square-twitter"></a>
+            <a class="fa-brands fa-square-instagram"></a>
+            <a class="fa-brands fa-linkedin"></a>
+        </div>
+
+    </div>
+
+
+
 </body>
+
 </html>

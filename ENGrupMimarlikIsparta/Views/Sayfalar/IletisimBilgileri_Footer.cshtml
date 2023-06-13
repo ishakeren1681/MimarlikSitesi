@@ -3,8 +3,8 @@
 
 @foreach (var item in Model)
 {
-    <li class="bottom-li">@item.Adres</li>
-    <li class="bottom-li">@item.TelefonNumarasi_1</li>
-    <li class="bottom-li">@item.TelefonNumarasi_2</li>
-    <li class="bottom-li">@item.Email</li>
+    <p><i class="fa-solid fa-location-dot"></i><span></span>@item.Adres</p>
+    <p><i class="fa-solid fa-phone"></i><span></span>@item.TelefonNumarasi_1</p>
+    <p><i class="fa-solid fa-phone"></i><span></span>@item.TelefonNumarasi_2</p>
+    <p><i class="fa-solid fa-envelope-open-text"></i><span></span>@item.Email</p>
 }

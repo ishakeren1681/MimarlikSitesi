@@ -1,64 +1,68 @@
 ﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Detaylar
 @{
     ViewBag.Title = "AnasayfaVerileriniGetir";
-    Layout = "~/Views/Shared/GenelLayout.cshtml";
+    Layout = "~/Views/Shared/KullaniciLayout.cshtml";
 }
-<title>Anasayfa | E&N Mimarlık Isparta Özakça Mimarlık</title>
-<br />
+<title>Anasayfa Güncele | E&N Mimarlık Isparta Özakça Mimarlık</title>
 
-<div class="hakkimizda-background">
-    <center>
-        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
-        <h1 class="background-sayfa-ismi">Anasayfa</h1>
-    </center>
+
+
+<div class="galeri">
+    <div class="web">
+        <h2>ANASAYFA</h2>
+    </div>
+    <div class="web">
+        <h1>E & N MiMARLIK</h1>
+    </div>
 </div>
 
 
+    @using (Html.BeginForm("AnasayfaVeriGuncelle", "Anasayfa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
 
-@using (Html.BeginForm("AnasayfaVeriGuncelle", "Anasayfa", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <div class="form-group" style="margin:25px 35px 35px 35px">
-
-        <h2>Anasayfa Bilgilerini Güncelleme Sayfası</h2>
-        @Html.HiddenFor(x => x.DetayID)
-
-
-        @Html.Label("Fotoğraf Türü")
-        <select id="fotografTuru" class="form-control">
-            <option value="TekliFotograf">Sadece Fotoğraf</option>
-            <option value="NormalFotograf">Açıklamalı Fotoğraf</option>
-        </select>
+            <h2>Anasayfa Bilgilerini Güncelleme Sayfası</h2>
+            @Html.HiddenFor(x => x.DetayID)
 
 
-        @Html.Label("Fotoğraf")
-        <br />
-        <div style="justify-content: center; align-items: center; ">
-            <img id="fotogragPreview" src="@Model.Fotograf" alt="Resim Yüklenemedi" class="form-control" style="width:800px; height:550px" />
+            @Html.Label("Fotoğraf Türü")
+            <select id="fotografTuru" class="form-control">
+                <option value="TekliFotograf">Sadece Fotoğraf</option>
+                <option value="NormalFotograf">Açıklamalı Fotoğraf</option>
+            </select>
+
+
+            @Html.Label("Fotoğraf")
             <br />
-            <input id="FotografInput" type="file" name="Fotograf" />
+            <div style="justify-content: center; align-items: center; ">
+                <img id="fotogragPreview" src="@Model.Fotograf" alt="Resim Yüklenemedi" class="form-control" style="width:800px; height:550px" />
+                <br />
+                <input id="FotografInput" type="file" name="Fotograf" />
+            </div>
+
+            <div id="aciklamaliFotograf" @*style="display:none"*@>
+                @Html.Label("Başlık")
+                @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+
+
+                @Html.Label("Açıklama")
+                @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+            </div>
+
+            <br />
+            @Html.Label("Resim Yönü")
+            <select class="form-control" name="Yonu">
+                <option value="Orta">Orta</option>
+                <option value="Sağ">Sağ</option>
+                <option value="Sol">Sol</option>
+            </select>
+
+            <br />
+            <button class="btn btn-success">Güncelle</button>
         </div>
-
-        <div id="aciklamaliFotograf" @*style="display:none"*@>
-            @Html.Label("Başlık")
-            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    }
 
 
-            @Html.Label("Açıklama")
-            @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
-        </div>
-
-        <br />
-        @Html.Label("Resim Yönü")
-        <select class="form-control" name="Yonu">
-            <option value="Orta">Orta</option>
-            <option value="Sağ">Sağ</option>
-            <option value="Sol">Sol</option>
-        </select>
-
-        <br />
-        <button class="btn btn-success">Güncelle</button>
-    </div>
-}
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

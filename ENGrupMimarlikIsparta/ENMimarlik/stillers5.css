@@ -1,0 +1,603 @@
+body{
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    background-color: darkgray;
+ 
+}
+
+a{ text-decoration: none; }
+a:hover { text-decoration:none; }
+
+.form-group {
+    margin-left: 5%
+}
+
+.form-control {
+   
+    max-width: 95%;
+}
+
+.sil-duzenle-buton {
+    text-align: right;
+    margin-right: 120px;
+    width: 90%
+}
+
+.buton{
+    float:right
+}
+/* NAVBAR CSS KODLARI */
+.menu-bar {
+    height: 90px;
+    width: 100%;
+    background-color: lightslategray;
+    display: flex;
+    justify-content: space-between; /* space-around yapılaiblir. */
+    position: sticky;
+    top: 0;
+}
+
+.menu{
+    margin-right: -10%;
+
+}
+
+.logo{
+    margin-top: 1px;
+
+}
+
+.logo img{
+    height:80px;
+}
+
+.menu ul {
+    margin-top: 9px;
+    margin-right: 15px
+}
+
+.menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 20px;
+    margin: 1px;
+
+}
+
+.menu a{
+    color:white;
+    font-size: 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid white;
+    padding: 10px;
+    transition:0.5s;
+}
+
+.menu li:hover a{
+    color:#073f68;
+    background-color: white;
+
+    /* color:white;
+    background-color: rgba(0,64,98,1); */
+
+}
+
+.menu i{ display: none;}
+
+
+.kontrol{
+    position: relative;
+    font-size: 40px;
+    float: right;
+    line-height: 60px;
+    padding: 5px;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+    display: none;
+    margin-bottom: 35px;
+}
+
+.social-media{
+    margin-top: 0px;
+
+    padding: 25px;
+}
+
+.social-media a{
+    font-size: 40px;
+}
+
+
+.social-media a:nth-child(1){ color:rgb(59, 89, 152);}
+.social-media a:nth-child(2){ color: rgb(8, 160, 233)}
+.social-media a:nth-child(3){ color: rgb(221, 42, 123);}
+.social-media a:nth-child(4){ color: rgb(0, 0, 255);}
+
+.social-media a:nth-child(1):hover{ color:rgba(255,255,255,0.5);}
+.social-media a:nth-child(2):hover{ color:rgba(255,255,255,0.5);}
+.social-media a:nth-child(3):hover{ color: rgba(255,255,255,0.5);}
+.social-media a:nth-child(4):hover{ color: rgba(255,255,255,0.5);}
+
+.login{
+    margin-top: 20px;
+    margin-right: 1%;
+}
+
+.login a{
+    font-size: 40px;
+    color: white;
+}
+
+
+
+/* GALERİ CSS KODLARI */
+.galeri{
+     background: url("img/anasayfa3.png");
+    /* background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.0)) ,url("img/anasayfa3.png"); */
+
+   
+    width: 100%;
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.galeri .web{
+    color: blanchedalmond;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+  
+}
+
+.web h1{ font-size: 50px; }
+.web h2{ font-size: 45px; color: wheat; box-shadow: 25px;}
+
+
+
+/* ORTA ALAN CSS KODLARI */
+.orta-alan{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+
+.orta{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid gray;
+    margin: 2% 0;
+    box-sizing: border-box;
+    background:linear-gradient(rgba(0,64,98,0.8),rgba(52,64,98,0.1));
+    justify-content: center;
+}
+
+.orta .icerik{
+    display: flex;
+   /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    text-align: justify;
+    font-family: verdana;
+    color: white;
+    width: 45%;
+}
+
+.orta p{ text-indent: 25px; }
+.orta img{ width: 100%; height:450px}
+
+
+/* ORTA GALERİ FOTOGRAF */
+.orta-galeri{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-around;
+}
+
+
+.orta-galeri-orta{
+    width: 100%;
+
+    border: 2px solid gray;
+    margin: 2% 0;
+    box-sizing: border-box;
+    background:linear-gradient(rgba(0,64,98,0.8),rgba(52,64,98,0.1));
+}
+
+.orta-galeri-orta .icerik{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    text-align: justify;
+    font-family: verdana;
+    color: white;
+    width: 95%;
+
+}
+
+.orta-galeri img{
+    width: 70%;
+    height:450px;
+
+}
+.orta-galeri  p{ 
+    text-indent: 25px;
+    padding: 5px;
+}
+
+
+/*ALT ALAN CSS KODLARI */
+.alt-alan{
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.9)) ,url("img/anasayfa2.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: center; */
+    color: white;
+}
+
+.alt-alan .icerik{
+    width: 30%;
+    box-sizing: border-box;
+
+    text-align: justify;
+    font-family: courier;
+    font-size: 18px;
+}
+
+.alt-baslik{ color: darkkhaki;}
+
+.alt-alan .icerik i{
+
+    font-size: 25px;
+    color:darkred;
+}
+.alt-alan .icerik span{ margin-left: 2em; }
+.alt-alan .icerik a{ font-size: 40px;}
+
+.alt-alan .icerik a:nth-child(2){ color:rgb(59, 89, 255);}
+.alt-alan .icerik a:nth-child(3){ color: rgb(8, 160, 233)}
+.alt-alan .icerik a:nth-child(4){ color: rgb(221, 42, 123);}
+.alt-alan .icerik a:nth-child(5){ color: rgb(0, 0, 255);}
+
+.alt-alan .icerik a:nth-child(2):hover{ color:rgba(255,255,255,0.5);}
+.alt-alan .icerik a:nth-child(3):hover{ color:rgba(255,255,255,0.5);}
+.alt-alan .icerik a:nth-child(4):hover{ color: rgba(255,255,255,0.5);}
+.alt-alan .icerik a:nth-child(5):hover{ color: rgba(255,255,255,0.5);}
+
+
+
+#kontrol{ display: none; }
+
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+/* HAKKIMIZDA EKİP */
+.ekip{
+    width: 100%;
+    text-align:  center;
+    /* background:linear-gradient(rgba(0,64,98,0.8),rgba(32, 178, 170, 0.7)); */  
+    background:linear-gradient(rgba(0,64,98,0.8),rgba(52,64,98,0.1));
+     
+    
+}
+
+.ekip .personeller{
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.personel{
+    width: 30%;
+    transition: all 1s;
+}
+
+.personel img{
+    height: 450px;
+    width: 100%;
+}
+
+.personel:hover{
+    transform: scale(1.1);
+}
+
+.personel p{
+    font-size: 20px;
+    padding: -10px;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.personel p:nth-child(2){ 
+    font-size: 30px;
+}
+
+
+
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+/* PROJELERİMİZ */
+.proje-statu{
+    flex-direction: column;
+    width: 95%;
+  
+}
+
+.proje-statu a{
+    display: block;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    text-decoration: none;
+
+}
+
+
+/* ILETİSİM */
+/* ILETİSİM */
+/* ILETİSİM */
+/* ILETİSİM */
+/* ILETİSİM */
+/* ILETİSİM */
+.iletisim{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background:linear-gradient(rgba(19, 20, 20, 0.1),rgba(52,64,98,0.1));
+}
+
+.iletisim .icerik{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 48%;
+}
+
+.iletisim .icerik h1{
+    font-size: 40px;
+}
+
+.iletisim .icerik label{
+    font-size: 30px;
+    font-weight: bold;
+    color:antiquewhite;
+}
+
+.iletisim .icerik p{
+    font-size: 30px;
+    text-indent: 45px;
+
+}
+
+.icerik iframe{
+    padding: 25px;
+    height: 600px;
+    width: 100%;
+}
+
+.send-message{
+    width: 95%;
+}
+
+.send-message-button{
+    font-size: 40px;
+    float: right;
+    color: green;
+
+}
+iframe {
+    height: 100%;
+}
+
+
+/* TABLET GÖRÜNÜM KODLARI */
+
+@media only screen and (max-width:992px){
+  
+}
+
+/* CEP TELEFONU GÖRÜNÜM KODLARI */
+
+@media only screen and (max-width:800px){
+
+
+
+    /*menu responsive */
+    .menu-bar{
+        justify-content: space-between;
+    }
+    .menu-bar .logo{margin-left: 3%}
+    .menu-bar .menu{margin-right: 10%}
+    .orta .icerik{ width: 100%;}
+    .menu i{
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+        border: 1px solid white;
+        padding:5px;
+        border-radius: 15%;
+        margin-top: 50%;
+    }
+    .kontrol{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        margin: 0;
+        padding:0;
+        width: 100%;
+    }
+
+    .menu ul{
+        position: absolute;
+        margin-top: 90px;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(26, 24, 24, 0.95);
+        display: none;
+    }
+    
+    .menu ul li{
+        display: block;
+        margin:0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .menu a{
+        width: 100%;
+        font-size: 30px;
+        line-height: 70px;
+        border-radius: 0;
+        border-bottom: 1px dotted gray;
+        border: none;
+    }
+    #kontrol:checked~ul{
+        display: block;
+    }
+
+    /* alt alan ayarlamaları */
+    .alt-alan .icerik{
+        width: 95%;
+    }
+
+    /*   Social-media*/
+
+    .login{
+        margin-right: 20%;
+    }
+
+    .orta img {
+        max-height:270px;
+    }
+    
+    /* ORTA GALERİ FOTOGRAF */
+    .orta-galeri{
+        display: flex;
+        flex-wrap: wrap;
+        width:100%;
+        justify-content: space-around;
+    }
+
+
+    .orta-galeri-orta{
+        width: 100%;
+        flex-wrap: wrap;
+        border: 2px solid gray;
+        margin: 2% 0;
+        box-sizing: border-box;
+        background:linear-gradient(rgba(0,64,98,0.8),rgba(52,64,98,0.1));
+    }
+
+
+    .orta-galeri img{ width: 100%; height:300px}
+    .orta-galeri  p{ text-indent: 25px; }
+
+    /* ALT ALAN */
+    .alt-alan{
+        height: 110vh;
+    }
+
+
+
+
+
+    /*  PERSONELLER */
+    /*  PERSONELLER */
+    /*  PERSONELLER */
+
+    .personel{
+        width: 80%;
+        padding: 5px;
+        transition: all 1s;
+    }
+
+    .personel img{
+        height: 350px;
+        width: 100%;
+    }
+
+
+    /* iletisim */
+    .iletisim{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background:linear-gradient(rgba(19, 20, 20, 0.8),rgba(52,64,98,0.1));
+    }
+    
+    .iletisim .icerik{ width: 90%; }
+    iframe{height:450px}
+    .iletisim .icerik h1{
+        padding: 10px;
+        font-size: 40px;
+    }
+    
+    .iletisim .icerik label{
+        padding: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        color:antiquewhite;
+    }
+    
+    .iletisim .icerik p{
+        font-size: 20px;
+        text-indent: 30px;
+    
+    }
+    
+    .icerik iframe{
+   
+        height: 425px;
+        width: 100%;
+    }
+    
+    .send-message{
+        width: 95%;
+    }
+    
+    .send-message-button{
+        font-size: 40px;
+        float: right;
+        color: green;
+    
+    }
+
+}
+

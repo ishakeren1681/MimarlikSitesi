@@ -11,18 +11,11 @@
 <br />
 <div>
     <center>
-        <table style="font-family: Arial; font-size: 18px;" class="table table-hover">
+        <table style="font-family: Arial; font-size: 18px;" class="table table-hover" >
             <tr class="alert-warning">
-                <th>#</th>
+                <th >#</th>
                 <th>Kullanıcı Adı</th>
-                <th>Email</th>
-                @if (Roles.IsUserInRole("A"))
-                {
-                    <th>Sifre</th>
-                }
-
                 <th>Yetki Statüsü</th>
-
                 @if (Roles.IsUserInRole("A"))
                 {
                     <th>
@@ -41,12 +34,6 @@
 
                     <td>@{siraNo++;} @siraNo</td>
                     <td>@item.KullaniciAdi</td>
-                    <td>@item.Email</td>
-                    @if (Roles.IsUserInRole("A"))
-                    {
-                        <td>@item.Sifre</td>
-                    }
-
                     <td>@item.YetkiStatusu</td>
                     @if (Roles.IsUserInRole("A"))
                     {

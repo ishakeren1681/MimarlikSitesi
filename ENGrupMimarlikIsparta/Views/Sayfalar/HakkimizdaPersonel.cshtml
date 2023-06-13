@@ -1,58 +1,49 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@using ENGrupMimarlikIsparta.Models.Siniflar
 
-
-
-@using ENGrupMimarlikIsparta.Models.Siniflar
 @model List<Personel>
 @{
     Layout = null;
 }
 
+
 @if (Model.Count > 0)
 {
-    <div style="background-color:slategray ; padding:15px">
-        <div>
-            <center>
-                <span class="ekip-baslik">Ekibimiz</span><br>
-            </center>
-        </div>
-
-
-        <div class="ekip-resimler" style="display:flex">
+    <div class="ekip">
+        <h1>EKİBİMİZ</h1>
+        <div class="personeller">
             @foreach (var item in Model)
             {
-                <div class="projeSize">
+                <div class="personel">
                     @if (!string.IsNullOrEmpty(item.Fotograf))
                     {
-                        <div class="insaat-muh" style="display:flex; ">
-                            <img style="width:450px; height:450px" class="avatar-img insaat-muh" src="@item.Fotograf" alt=""><br>
+                        <img src="@item.Fotograf">
+                    }
+                    <p>@item.Unvan</p>
+                    <p>@item.AdSoyad</p>
+                    <p>@item.TelefonNumarasi</p>
+
+                    @if (Roles.IsUserInRole("A"))
+                    {
+                        <div class="sil-duzenle-buton">
+                            <a class="btn btn-danger glyphicon glyphicon-trash" href="/Personel/PersonelSil/@item.PersonelID"></a>
+                            <a class="btn btn-success glyphicon glyphicon-pencil" href="/Personel/PersonelGetir/@item.PersonelID"></a>
+                            <br /><br />
                         </div>
                     }
-
-                    <br />
-
-                    <div>
-                        <span class="ekip-isimler">@item.AdSoyad</span> <br>
-                    </div>
-
-                    <div>
-                        <span class="ekip-meslekler">@item.Unvan</span> <br>
-                    </div>
-
-                    <div>
-                        <span class="ekip-telno">@item.TelefonNumarasi</span>
-                    </div>
-
                 </div>
             }
         </div>
 
     </div>
 }
-<br />
+
+@if (Roles.IsUserInRole("A"))
+{
+    <div class="sil-duzenle-buton">
+        <a class="btn btn-primary glyphicon glyphicon-plus-sign" href="/Personel/PersonelEkle/"></a>
+    </div>
+    <br />
+}
 
 
 

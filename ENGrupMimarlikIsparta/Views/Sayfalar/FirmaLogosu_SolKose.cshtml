@@ -5,13 +5,13 @@
 {
     if (!string.IsNullOrEmpty(item.FirmaLogosu))
     {
-        <img class="logo-img" style="width:60px;height:60px; text-decoration:none"
-             src="@item.FirmaLogosu" alt="~/Image/bina1.jpg">
+        <a href="/Admin/AdminIndex"><div class="logo"><img src="@item.FirmaLogosu"></div></a>
+        
     }
     if (string.IsNullOrEmpty(item.FirmaLogosu))
     {
-        <img class="logo-img" style="width:60px;height:60px; text-decoration:none"
-             src="~/ENMimarlik/img/logo.png" alt="~/Image/bina1.jpg">
+        <a href="/Admin/AdminIndex"> <img class="logo-img" style="width:60px;height:60px; text-decoration:none"
+     src="~/ENMimarlik/img/logo.png" alt="~/Image/bina1.jpg"></a>
     }
 
 }

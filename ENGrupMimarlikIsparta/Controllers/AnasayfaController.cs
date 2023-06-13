@@ -17,11 +17,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
         // GET: Anasayfa
 
-        public ActionResult AnasayfaIndex()
-        {
-            var anasayfaDegerler = c.Detaylars.Where(x=>x.HangiSayfa == "Anasayfa").ToList();
-            return View(anasayfaDegerler);
-        }
+
 
         [HttpGet]
         public ActionResult VeriEkle()
@@ -48,7 +44,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.Detaylars.Add(p);
             c.SaveChanges();
 
-            return RedirectToAction("AnasayfaIndex");
+            return RedirectToAction("Anasayfa","Sayfalar");
 
         }
 
@@ -88,7 +84,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             anasayfaVeri.Yonu = p.Yonu;
 
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
-            return RedirectToAction("AnasayfaIndex");
+            return RedirectToAction("Anasayfa", "Sayfalar");
         }
 
 
@@ -102,7 +98,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
             c.Detaylars.Remove(sütunSil);
             c.SaveChanges();
-            return RedirectToAction("AnasayfaIndex");
+            return RedirectToAction("Anasayfa", "Sayfalar");
         }
     }
 }

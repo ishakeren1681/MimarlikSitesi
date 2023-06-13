@@ -1,12 +1,20 @@
 ﻿@model ENGrupMimarlikIsparta.Models.Siniflar.Detaylar
 @{
     ViewBag.Title = "VeriEkle";
-    Layout = "~/Views/Shared/GenelLayout.cshtml";
+    Layout = "~/Views/Shared/KullaniciLayout.cshtml";
 }
 
-<title>Hakkımızda | E&N Mimarlık Isparta Özakça Mimarlık</title>
-<br />
-<br />
+<title>Hakkımızda Ekle | E&N Mimarlık Isparta Özakça Mimarlık</title>
+
+
+<div class="galeri">
+    <div class="web">
+        <h2>HAKKIMIZDA</h2>
+    </div>
+    <div class="web">
+        <h1>E & N MiMARLIK</h1>
+    </div>
+</div>
 <div class="hakkimizda-background">
     <center>
         <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
@@ -46,7 +54,6 @@
     <br />
     @Html.Label("Resim Yönü")
     <select class="form-control" name="Yonu">
-        <option value="Orta">Orta</option>
         <option value="Sağ">Sağ</option>
         <option value="Sol">Sol</option>
     </select>

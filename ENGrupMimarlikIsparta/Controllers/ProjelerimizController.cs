@@ -13,16 +13,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     public class ProjelerimizController : Controller
     {
         Context c = new Context();
-        public ActionResult ProjeIndex()
-        {
-            return View();
-        }
 
-        public ActionResult MerkezProjeleri()
-        {
-            var merkezProjeleri = c.Detaylars.Where(x => x.HangiSayfa == "MerkezProjeleri").ToList();
-            return View(merkezProjeleri);
-        }
 
         [HttpGet]
         public ActionResult MerkezProjesiEkle()
@@ -48,7 +39,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.Detaylars.Add(p);
             c.SaveChanges();
 
-            return RedirectToAction("MerkezProjeleri", "Projelerimiz");
+            return RedirectToAction("MerkezProjeleri", "Sayfalar");
         }
 
         public ActionResult MerkezProjeSil(int id)
@@ -61,7 +52,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
             c.Detaylars.Remove(merkezprojesil);
             c.SaveChanges();
-            return RedirectToAction("MerkezProjeleri", "Projelerimiz");
+            return RedirectToAction("MerkezProjeleri", "Sayfalar");
         }
 
         public ActionResult MerkezProjesiVerileriniGetir(int id)
@@ -102,7 +93,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
 
-            return RedirectToAction("MerkezProjeleri");
+            return RedirectToAction("MerkezProjeleri", "Sayfalar");
         }
 
 
@@ -137,7 +128,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             c.Detaylars.Add(p);
             c.SaveChanges();
 
-            return RedirectToAction("IlceProjeleri", "Projelerimiz");
+            return RedirectToAction("IlceProjeleri", "Sayfalar");
         }
 
         public ActionResult IlceProjesiSil(int id)
@@ -153,7 +144,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             c.Detaylars.Remove(ilceProjeSil);
             c.SaveChanges();
-            return RedirectToAction("IlceProjeleri", "Projelerimiz");
+            return RedirectToAction("IlceProjeleri", "Sayfalar");
         }
 
         public ActionResult IlceProjesiVerileriniGetir(int id)
@@ -194,7 +185,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
 
-            return RedirectToAction("IlceProjeleri");
+            return RedirectToAction("IlceProjeleri", "Sayfalar");
         }
     }
 }

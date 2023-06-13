@@ -14,12 +14,6 @@ namespace ENGrupMimarlikIsparta.Controllers
     {
         Context c = new Context();
 
-        public PartialViewResult PersonelSayfasi()
-        {
-            var personeller = c.Personels.ToList();
-            return PartialView(personeller);
-        }
-
 
         [HttpGet]
         public ActionResult PersonelEkle()
@@ -42,7 +36,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
             c.Personels.Add(p);
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
-            return RedirectToAction("HakkimizdaIndex", "Hakkimizda");
+            return RedirectToAction("Hakkimizda", "Sayfalar");
         }
 
 
@@ -58,7 +52,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
             c.Personels.Remove(personelBul);
             c.SaveChanges();
-            return RedirectToAction("HakkimizdaIndex","Hakkimizda");
+            return RedirectToAction("Hakkimizda", "Sayfalar");
         }
 
         public ActionResult PersonelGetir(int id)
@@ -96,7 +90,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             personelVeri.TelefonNumarasi = p.TelefonNumarasi;
       
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
-            return RedirectToAction("HakkimizdaIndex","Hakkimizda");
+            return RedirectToAction("Hakkimizda","Sayfalar");
         }
     }
 }

@@ -2,14 +2,18 @@
 
 @{
     ViewBag.Title = "MerkezProjesiVerileriniGetir";
-    Layout = "~/Views/Shared/GenelLayout.cshtml";
+    Layout = "~/Views/Shared/KullaniciLayout.cshtml";
 }
-<br />
+<title>Merkez Projesi Güncelle | E&N Mimarlık Isparta Özakça Mimarlık</title>
 
-
-<br />
-
-
+<div class="galeri">
+    <div class="web">
+        <h2>MERKEZ PROJELERİ</h2>
+    </div>
+    <div class="web">
+        <h1>E & N MiMARLIK</h1>
+    </div>
+</div>
 
 
 @using (Html.BeginForm("MerkezProjesiGuncelle", "Projelerimiz", FormMethod.Post, new { enctype = "multipart/form-data" }))

@@ -15,12 +15,6 @@ namespace ENGrupMimarlikIsparta.Controllers
     {
        private readonly Context c = new Context();
 
-        public ActionResult NelerYapiyoruzIndex()
-        {
-            var nelerYapiyoruzDegerler = c.Detaylars.Where(x => x.HangiSayfa == "NelerYapiyoruz").ToList();
-            return View(nelerYapiyoruzDegerler);
-        }
-
         [HttpGet]
         public ActionResult VeriEkle()
         {
@@ -44,7 +38,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             p.HangiSayfa = "NelerYapiyoruz";
             c.Detaylars.Add(p);
             c.SaveChanges();
-            return RedirectToAction("NelerYapiyoruzIndex", "NelerYapiyoruz");
+            return RedirectToAction("NelerYapiyoruz", "Sayfalar");
         }
 
         public ActionResult NelerYapiyoruzVeriGuncelle(Detaylar p)
@@ -75,7 +69,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             nelerYapiyoruzVeri.Baslik = p.Baslik;
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
 
-            return RedirectToAction("NelerYapiyoruzIndex");
+            return RedirectToAction("NelerYapiyoruz", "Sayfalar");
         }
 
         public ActionResult NelerYapiyoruzVerileriniGetir(int id)
@@ -95,7 +89,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             }
             c.Detaylars.Remove(sütunSil);
             c.SaveChanges();
-            return RedirectToAction("NelerYapiyoruzIndex");
+            return RedirectToAction("NelerYapiyoruz", "Sayfalar");
         }
     }
 }

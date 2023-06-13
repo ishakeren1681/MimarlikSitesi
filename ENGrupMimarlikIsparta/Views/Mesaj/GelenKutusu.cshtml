@@ -23,7 +23,7 @@
                 <th>Adı Soyadı</th>
                 <th></th>
 
-                <th>Konu</th>
+     
                 <th>Mesaj</th>
                 <th>Tarih</th>
                 <th></th>
@@ -45,7 +45,7 @@
                     <td>@item.Gonderen</td>
                     <td></td>
 
-                    <td>@item.Konu.Substring(0, Math.Min(item.Konu.Length, 45))...</td>
+                   
                     <td><a href="/Mesaj/MesajDetay/@item.MesajID">@item.MesajDetay.Substring(0, Math.Min(item.MesajDetay.Length, 45))...</a></td>
                     <td>@item.Tarih.ToShortDateString()</td>
                     <td></td>

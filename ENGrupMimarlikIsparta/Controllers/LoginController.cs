@@ -20,10 +20,7 @@ namespace ENGrupMimarlikIsparta.Controllers
         Context c = new Context();
 
 
-        public ActionResult Anasayfa()
-        {
-            return View();
-        }
+
 
         public ActionResult LoginIndex()
         {

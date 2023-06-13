@@ -15,12 +15,6 @@ namespace ENGrupMimarlikIsparta.Controllers
     {
         Context c = new Context();
 
-        public ActionResult HakkimizdaIndex()
-        {
-            var hakkimizdaDegerler = c.Detaylars.Where(x => x.HangiSayfa == "Hakkimizda").ToList();
-            return View(hakkimizdaDegerler);
-        }
-
         [HttpGet]
         public ActionResult HakkimizdaVeriEkle()
         {
@@ -46,7 +40,7 @@ namespace ENGrupMimarlikIsparta.Controllers
             p.Yonu = Request.Form["Yonu"];
             c.Detaylars.Add(p);
             c.SaveChanges();
-            return RedirectToAction("HakkimizdaIndex", "Hakkimizda");
+            return RedirectToAction("Hakkimizda", "Sayfalar");
         }
 
         public ActionResult HakkimizdaVerileriniGetir(int id)
@@ -87,7 +81,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             c.SaveChanges(); // Değişiklikleri veritabanına kaydetmek için gerekli olan kod
 
-            return RedirectToAction("HakkimizdaIndex");
+            return RedirectToAction("Hakkimizda", "Sayfalar");
         }
 
         public ActionResult VeriSil(int id)
@@ -101,7 +95,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             c.Detaylars.Remove(sütunSil);
             c.SaveChanges();
-            return RedirectToAction("HakkimizdaIndex");
+            return RedirectToAction("Hakkimizda", "Sayfalar");
         }
     }
 

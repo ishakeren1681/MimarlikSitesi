@@ -6,61 +6,98 @@
 }
 <title>Anasayfa | E&N Mimarlık Isparta Özakça Mimarlık</title>
 
-<div class="hakkimizda-background">
-    <center>
-        <h1 class="background-sirket-ismi">E & N GRUP MİMARLIK</h1>
-        <h1 class="background-sayfa-ismi">Anasayfa</h1>
-    </center>
+
+<div class="galeri">
+    <div class="web">
+        <h2>ANASAYFA</h2>
+    </div>
+    <div class="web">
+        <h1>E & N MiMARLIK</h1>
+    </div>
 </div>
-<br />
+
 
 @foreach (var item in Model)
 {
-    <div class="anasayfa-proje-div">
-        @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sol")
-        {
-            <div class="anasayfa-img-div">
-                <img class="projeSize anasayfa-fotograf" src="@item.Fotograf" alt="">
-            </div>
-        }
 
-        @if (!string.IsNullOrEmpty(item.Baslik) && !string.IsNullOrEmpty(item.Aciklama))
-        {
-            <div>
-                <center>
-                    @if (!string.IsNullOrEmpty(item.Baslik))
-                    {
-                        <h1 class="anasayfa-baslik">@item.Baslik</h1>
-                    }
-                    @if (!string.IsNullOrEmpty(item.Aciklama))
-                    {
-                        <p class="anasayfa-aciklama">@item.Aciklama</p>
-                    }
-                </center>
-            </div>
-        }
+    if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu != "Orta")
+    {
+        <div class="orta-alan">
+            <div class="orta">
+                @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sol")
+                {
+                    <div class="icerik">
+                        <img class="orta-alan-img" src="@item.Fotograf">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(item.Baslik) || !string.IsNullOrEmpty(item.Aciklama))
+                {
+                    <div class="icerik">
+                        @if (!string.IsNullOrEmpty(item.Baslik))
+                        {
+                            <h3>@item.Baslik</h3>
+                        }
+                        @if (!string.IsNullOrEmpty(item.Aciklama))
+                        {
+                            <p>@item.Aciklama</p>
+                        }
+                    </div>
+                }
 
-        @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sağ")
-        {
-            <div class="anasayfa-img-div">
-                <img class="anasayfa-fotograf projeSize" src="@item.Fotograf" alt="">
+                @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Sağ")
+                {
+                    <div class="icerik">
+                        <img src="@item.Fotograf">
+                    </div>
+                }
             </div>
-        }
-    </div>
+        </div>
 
-    //! Orta Gösterim
+    }
 
     if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Orta")
     {
-        <div class="anasayfa-teklifoto-div">
-            <div class="anasayfa-teklifoto-ic-div" style="background-color:dimgray">
-                <img class="anasayfa-teklifoto-img projeSize" src="@item.Fotograf" alt="">
+        <div class="orta-galeri">
+            <div class="orta-galeri-orta">
+                @if (!string.IsNullOrEmpty(item.Baslik) || !string.IsNullOrEmpty(item.Aciklama))
+                {
+                    <div class="icerik">
+                        @if (!string.IsNullOrEmpty(item.Baslik))
+                        {
+                            <h3>@item.Baslik</h3>
+                        }
+                        @if (!string.IsNullOrEmpty(item.Aciklama))
+                        {
+                            <p>@item.Aciklama</p>
+                        }
+                    </div>
+                }
+
+
+                @if (!string.IsNullOrEmpty(item.Fotograf) && item.Yonu == "Orta")
+                {
+                    <div class="icerik">
+                        <img src="@item.Fotograf">
+                    </div>
+                }
             </div>
+        </div>
+    }
+
+    if (Roles.IsUserInRole("A"))
+    {
+        <div class="sil-duzenle-buton">
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="/Anasayfa/VeriSil/@item.DetayID"></a>
+            <a class="btn btn-success glyphicon glyphicon-pencil" href="/Anasayfa/AnasayfaVerileriniGetir/@item.DetayID"></a>
         </div>
     }
 }
 
-<br />
-
-
+@if (Roles.IsUserInRole("A"))
+{
+    <div class="sil-duzenle-buton">
+        <a class="btn btn-primary glyphicon glyphicon-plus-sign" href="/Anasayfa/VeriEkle/"></a>
+    </div>
+    <br />
+}
 

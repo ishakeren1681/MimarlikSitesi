@@ -46,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <div class="register-full">
             <div class="header">
-               
+
                 <div class="clear"></div>
             </div>
             <br />
@@ -69,9 +69,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 @using (Html.BeginForm("KullaniciAdimiUnuttum", "Login", FormMethod.Post))
                                 {
-                                    <input type="text" class="name" name="Email" Placeholder="Mail Adresi" required="" />
-                                    <input type="password" class="name" name="Sifre" Placeholder="Şifre" required="" />
-                                    <input style="width:490px; margin-left:-5px" type="submit" value="Gönder">
+                                    <div style="width:450px; height:25px;">
+                                        <input style="width:90%; margin-left:-5px" type="text" class="name" name="Email" Placeholder="Mail Adresi" required="" />
+                                        <input style="width:90%; margin-left:-5px" type="password" class="name" name="Sifre" Placeholder="Şifre" required="" />
+                                        <input style="width:95%; margin-left:-5%" type="submit" value="Gönder">
+                                    </div>
+
                                 }
                                 <br />
                             </div>
