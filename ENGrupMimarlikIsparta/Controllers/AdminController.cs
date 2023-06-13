@@ -14,7 +14,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        Context c = new Context();
+        private readonly Context c = new Context();
 
         public ActionResult AdminIndex()
         {
@@ -196,7 +196,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
                 var file = Request.Files[0];
                 string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(file.FileName);
+                
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 file.SaveAs(yol);
                 p.FirmaLogosu = "/Image/" + dosyaAdi;

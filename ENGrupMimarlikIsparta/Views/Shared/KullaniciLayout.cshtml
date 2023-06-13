@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E&N Mimarlık hakkında bilgiler içeren web sitesi. Projelerimiz, ekibimiz ve hizmetlerimiz hakkında daha fazla bilgi edinin.">
-
+    <meta name="description" content="E&N Mimarlık Isparta - Özakça Mimarlık Isparta - Mimarlık - Apart - Çizim - Mimari - Statik">
+    <link rel="shortcut icon" href="~/ENMimarlik/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/ENMimarlik/stillers.css">
@@ -24,13 +24,13 @@
 
 <body>
     <div class="menu-bar">
-        @Html.Action("FirmaLogosu_SolKose", "Sayfalar")
-       
+
+            @Html.Action("FirmaLogosu_SolKose", "Sayfalar")
 
         <div class="menu">
             <input type="checkbox" id="kontrol" >
             <label for="kontrol" class="kontrol">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" ></i>
             </label>
 
             <ul>
@@ -45,7 +45,7 @@
             @Html.Action("SosyalMedyaPartial", "Sayfalar")
         </div>
 
-        <div class="login">
+        <div class="login" >
             <a href="/Login/LoginIndex" class="fa-solid fa-circle-user"></a>
         </div>
     </div>

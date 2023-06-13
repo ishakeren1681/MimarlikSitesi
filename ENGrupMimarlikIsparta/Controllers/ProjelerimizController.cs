@@ -12,7 +12,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     [Authorize]
     public class ProjelerimizController : Controller
     {
-        Context c = new Context();
+        private readonly Context c = new Context();
 
 
         [HttpGet]
@@ -27,9 +27,7 @@ namespace ENGrupMimarlikIsparta.Controllers
 
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
-                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 Request.Files[0].SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
             }
@@ -78,9 +76,7 @@ namespace ENGrupMimarlikIsparta.Controllers
                 }
 
                 var file = Request.Files[0];
-                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(file.FileName);
-                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 file.SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
                 merkezProje.Fotograf = p.Fotograf;
@@ -117,7 +113,6 @@ namespace ENGrupMimarlikIsparta.Controllers
             if (Request.Files.Count > 0 && Request.Files[0] != null && Request.Files[0].ContentLength > 0)
             {
                 string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(Request.Files[0].FileName);
                 string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 Request.Files[0].SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
@@ -170,9 +165,7 @@ namespace ENGrupMimarlikIsparta.Controllers
                 }
 
                 var file = Request.Files[0];
-                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);
-                string uzanti = Path.GetExtension(file.FileName);
-                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
+                string dosyaAdi = "EN_Mimarlik" + fotografTarihi + Path.GetExtension(Request.Files[0].FileName);                string yol = Path.Combine(Server.MapPath("~/Image/"), dosyaAdi);
                 file.SaveAs(yol);
                 p.Fotograf = "/Image/" + dosyaAdi;
                 ilceProje.Fotograf = p.Fotograf;

@@ -17,7 +17,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
-        Context c = new Context();
+        private readonly Context c = new Context();
 
 
 

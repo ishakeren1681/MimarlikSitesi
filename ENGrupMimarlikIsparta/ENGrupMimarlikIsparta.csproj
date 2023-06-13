@@ -330,7 +330,6 @@
     <Content Include="ENMimarlik\neleryapiyoruz.html" />
     <Content Include="ENMimarlik\projelerimiz.html" />
     <Content Include="ENMimarlik\stillers.css" />
-    <Content Include="ENMimarlik\stillers4.css" />
     <Content Include="ENMimarlik\stillers5.css" />
     <Content Include="ENMimarlik\style.css" />
     <Content Include="favicon.ico" />

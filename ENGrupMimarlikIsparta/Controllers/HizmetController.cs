@@ -12,7 +12,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     [Authorize]
     public class HizmetController : Controller
     {
-        Context c = new Context();
+        private readonly Context c = new Context();
         // GET: Hizmet
         public ActionResult HizmetIndex()
         {

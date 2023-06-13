@@ -12,7 +12,7 @@ namespace ENGrupMimarlikIsparta.Controllers
     [Authorize]
     public class MesajController : Controller
     {
-        Context c = new Context();
+        private readonly Context c = new Context();
 
         public ActionResult GelenKutusu()
         {

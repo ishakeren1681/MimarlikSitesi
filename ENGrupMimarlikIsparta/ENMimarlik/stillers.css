@@ -145,8 +145,8 @@ a:hover { text-decoration:none; }
     background-position: center;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;
+    align-items: center;*/
     flex-direction: column;
 }
 
@@ -157,8 +157,8 @@ a:hover { text-decoration:none; }
   
 }
 
-.web h1{ font-size: 50px; }
-.web h2{ font-size: 45px; color: wheat; box-shadow: 25px;}
+.web h1{ font-size: 45px; }
+.web h2{ font-size: 35px; color: wheat; box-shadow: 25px;}
 
 
 
@@ -431,7 +431,11 @@ iframe {
 
 @media only screen and (max-width:800px){
 
+    /* Galeri*/
 
+    .web h1 {font-size: 40px; }
+
+    .web h2 { font-size: 30px; }
 
     /*menu responsive */
     .menu-bar {
@@ -441,7 +445,7 @@ iframe {
 
     .menu label{
         position:absolute;
-        margin-left:90%
+        margin-left:82%
     }
     .menu-bar .logo{margin-left: 3%}
     .menu-bar .menu{margin-right: 10%}
